@@ -3,106 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact Us - Udyog Saarthi</title>
     
     <link rel="icon" type="image/png" href="/assets/logo.webp">
-
     <link rel="stylesheet" href="/src/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class'
+      }
+    </script>
 </head>
     
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <header class="bg-blue-600 text-white py-4 shadow-lg">
+    <!-- HEADER START -->
+    <header class="bg-blue-600 text-white dark:bg-blue-800 py-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center px-6">
-
             <a href="index.html" class="text-2xl font-bold">Udyog Saarthi</a>
             <nav>
-                <ul class="flex space-x-6 ">
+                <ul class="flex items-center space-x-6">
                     <li>
-                        <a href="index.html"class="text-white px-4 py-2 rounded-md transition duration-300 ease-in-out hover:bg-white hover:text-blue-600">
+                        <a href="index.html" class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black">
                             🏠 Home
                         </a>
                     </li>
                     <li>
-                        <a href="#"class="text-white px-4 py-2 rounded-md transition duration-300 ease-in-out hover:bg-white hover:text-blue-600">
+                        <a href="#" class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
                             🏫 Job Coaching
                         </a>
                     </li>
                     <li>
-                        <a href="#"class="text-white px-4 py-2 rounded-md transition duration-300 ease-in-out hover:bg-white hover:text-blue-600">
+                        <a href="#" class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
                             🏢 Training
                         </a>
                     </li>
                     <li>
-                        <a href="#"class="text-white px-4 py-2 rounded-md transition duration-300 ease-in-out hover:bg-white hover:text-blue-600">
+                        <a href="#" class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
                             💼 Jobs
                         </a>
                     </li>
                     <li>
-                        <a href="contact.html"class="text-white px-4 py-2 rounded-md transition duration-300 ease-in-out hover:bg-white hover:text-blue-600">
+                        <a href="contact.html" class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
                             ☎️ Contact
                         </a>
                     </li>
-                    
+
+                    <!-- Theme Toggle Button -->
+                    <span>Dark Mode: </span>
+                    <label class="flex items-center relative w-max cursor-pointer select-none">
+                        <input type="checkbox" class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-blue-500 bg-red-500" />
+                        <span class="absolute font-medium text-xs uppercase right-1 text-white"> OFF </span>
+                        <span class="absolute font-medium text-xs uppercase right-8 text-white"> ON </span>
+                        <span class="w-7 h-7 right-7 absolute rounded-full transform transition-transform bg-gray-200" />
+                    </label>
+
+                    <style>
+                        input:checked {
+                            background-color: #22c55e; /* bg-green-500 */
+                        }
+
+                        input:checked ~ span:last-child {
+                            --tw-translate-x: 1.75rem; /* translate-x-7 */
+                        }
+                    </style>
                 </ul>
             </nav>
         </div>
     </header>
+    <!-- HEADER END -->
 
     <!-- Contact Section -->
     <section class="py-16">
         <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-blue-600">Contact Us</h2>
-            <p class="text-center text-gray-600 mt-2">We’d love to hear from you! Reach out to us for any inquiries.</p>
+            <h2 class="text-3xl font-bold text-center text-blue-600 dark:text-blue-400">Contact Us</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mt-2">We'd love to hear from you! Reach out to us for any inquiries.</p>
 
             <div class="grid md:grid-cols-2 gap-10 mt-10">
                 <!-- Contact Form -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold text-blue-600">Send Us a Message</h3>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">Send Us a Message</h3>
                     <form action="#" method="POST" class="mt-4">
-                        <label class="block text-gray-700 font-medium">Your Name</label>
-                        <input type="text" name="name" class="w-full p-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your name" required>
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium">Your Name</label>
+                        <input type="text" name="name" class="bg-white w-full p-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter your name" required>
 
-                        <label class="block text-gray-700 font-medium mt-4">Your Email</label>
-                        <input type="email" name="email" class="w-full p-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your email" required>
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mt-4">Your Email</label>
+                        <input type="email" name="email" class="bg-white w-full p-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter your email" required>
 
-                        <label class="block text-gray-700 font-medium mt-4">Your Message</label>
-                        <textarea name="message" rows="4" class="w-full p-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Write your message..." required></textarea>
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mt-4">Your Message</label>
+                        <textarea name="message" rows="4" class="bg-white w-full p-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Write your message..." required></textarea>
 
-                        <button type="submit" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">Send Message</button>
+                        <button type="submit" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 transition">Send Message</button>
                     </form>
                 </div>
 
                 <!-- Contact Info -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold text-blue-600">Our Contact Information</h3>
-                    <p class="text-gray-600 mt-2">Feel free to visit or call us for any inquiries.</p>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">Our Contact Information</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Feel free to visit or call us for any inquiries.</p>
 
                     <div class="mt-4">
-                        <p class="font-semibold">📍 Address:</p>
-                        <p class="text-gray-700">Lovely Professional University, Punjab, India</p>
+                        <p class="font-semibold text-gray-800 dark:text-gray-200">📍 Address:</p>
+                        <p class="text-gray-700 dark:text-gray-300">Lovely Professional University, Punjab, India</p>
                     </div>
 
                     <div class="mt-4">
-                        <p class="font-semibold">📞 Phone:</p>
-                        <p class="text-gray-700">+91 12345 67890</p>
+                        <p class="font-semibold text-gray-800 dark:text-gray-200">📞 Phone:</p>
+                        <p class="text-gray-700 dark:text-gray-300">+91 12345 67890</p>
                     </div>
 
                     <div class="mt-4">
-                        <p class="font-semibold">📧 Email:</p>
-                        <p class="text-gray-700">contact@udyogsaarthi.com</p>
+                        <p class="font-semibold text-gray-800 dark:text-gray-200">📧 Email:</p>
+                        <p class="text-gray-700 dark:text-gray-300">contact@udyogsaarthi.com</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- FOOTER START -->
-    <footer class="bg-blue-600 text-white py-6 text-center">
+    <footer class="bg-blue-600 dark:bg-blue-800 text-white py-6 text-center">
         <p>&copy; 2025 Udyog Saarthi. All Rights Reserved.</p>
     </footer>
     <!-- FOOTER END -->
 
+    <!-- Dark Mode Script -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggle = document.querySelector('input[type="checkbox"]');
+        const themeToggleSpan = document.querySelector('input[type="checkbox"] + span');
+        const html = document.documentElement;
+
+        // Function to apply theme
+        function applyTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                themeToggle.checked = true;
+                themeToggleSpan.textContent = 'ON';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeToggle.checked = false;
+                themeToggleSpan.textContent = 'OFF';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Initial theme setup
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        // Toggle theme on checkbox change
+        themeToggle.addEventListener('change', () => {
+            const isDark = themeToggle.checked;
+            applyTheme(isDark);
+        });
+
+        // Listen for system theme changes
+        prefersDarkScheme.addListener((e) => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches);
+            }
+        });
+    </script>
 </body>
 </html>

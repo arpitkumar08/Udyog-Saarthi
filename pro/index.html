@@ -2,120 +2,211 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Udyog Saarthi App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udyog Saarthi App</title>
 
-    <link rel="icon" type="image/png" href="/assets/logo.webp">
-    <link rel="stylesheet" href="/src/output.css">
+  <link rel="icon" type="image/png" href="/assets/logo.webp">
+  <link rel="stylesheet" href="/src/output.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- HEADER START -->
-    <header class="bg-blue-600 text-white py-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center px-6">
+  <!-- HEADER START -->
+  <header class="bg-blue-600 text-white dark:bg-blue-800 py-4 shadow-lg fixed w-full z-10">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <a href="index.html" class="text-2xl font-bold">Udyog Saarthi</a>
 
-            <a href="index.html" class="text-2xl font-bold">Udyog Saarthi</a>
-            <nav>
-                <ul class="flex space-x-6 ">
-                    <li>
-                        <a href="index.html"class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">
-                            🏠 Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"class="text-white px-4 py-2 rounded-md  hover:bg-white hover:text-blue-600">
-                            🏫 Job Coaching
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"class="text-white px-4 py-2 rounded-md  hover:bg-white hover:text-blue-600">
-                            🏢 Training
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"class="text-white px-4 py-2 rounded-md  hover:bg-white hover:text-blue-600">
-                            💼 Jobs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html"class="text-white px-4 py-2 rounded-md  hover:bg-white hover:text-blue-600">
-                            ☎️ Contact
-                        </a>
-                    </li>
-                    
-                </ul>
-            </nav>
-        </div>
-    </header>
+      <nav>
+        <ul class="flex items-center space-x-6">
+          <li>
+            <a href="index.html"
+              class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black">
+              🏠 Home
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
+              🏫 Job Coaching
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
+              🏢 Training
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
+              💼 Jobs
+            </a>
+          </li>
+          <li>
+            <a href="contact.html"
+              class="text-white dark:text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600 dark:hover:bg-white dark:hover:text-black">
+              ☎️ Contact
+            </a>
+          </li>
 
-    <!-- HEADER END -->
+          <!-- Theme Toggle Button -->
+          <span>Dark Mode: </span>
+          <label class="flex items-center relative w-max cursor-pointer select-none">
+            <input type="checkbox"
+              class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-blue-500 bg-red-500" />
+            <span class="absolute font-medium text-xs uppercase right-1 text-white"> OFF </span>
+            <span class="absolute font-medium text-xs uppercase right-8 text-white"> ON </span>
+            <span class="w-7 h-7 right-7 absolute rounded-full transform transition-transform bg-gray-200" />
+          </label>
+
+          <style>
+            body {
+              background-color: #171717;
+              /* bg-true-gray-900 */
+              color: white;
+            }
+
+            input:checked {
+              background-color: #22c55e;
+              /* bg-green-500 */
+            }
+
+            input:checked~span:last-child {
+              --tw-translate-x: 1.75rem;
+              /* translate-x-7 */
+            }
+          </style>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Rest of the HTML remains the same as the original -->
+  <!-- ... (other sections) ... -->
 
 
-    <!-- HERO SECTION START -->
-    <section class="bg-blue-500 text-white py-20 text-center">
-        <div class=" mx-auto px-6">
-            <h2 class="text-4xl font-bold">Empowering Careers for Everyone</h2>
-            <p class="mt-4 text-lg">Get access to job coaching, training materials, and job opportunities under the 4%
-                reservation.</p>
-            
-        </div>
-    </section>
+</body>
 
-    <!-- HERO SECTION END -->
+</html>
+<!-- HEADER END -->
 
-    <!-- FEATURE SECTION START -->
-    <section class="py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Why Choose Udyog Saarthi?</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Job Coaching</h3>
-                    <p class="mt-2 text-gray-600">Access structured training programs designed to improve your skills.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Training Materials</h3>
-                    <p class="mt-2 text-gray-600">Get learning resources including videos, quizzes, and guides.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Job Opportunities</h3>
-                    <p class="mt-2 text-gray-600">Find jobs that match your skills and eligibility under the 4%
-                        reservation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO SECTION START -->
+<section class="bg-blue-600 text-white dark:bg-blue-800 py-20 text-center">
+  <div class="mx-auto px-6">
+    <h2 class="text-4xl font-bold">Empowering Careers for Everyone</h2>
+    <p class="mt-4 text-lg">Get access to job coaching, training materials, and job opportunities under the 4%
+      reservation.</p>
+  </div>
+</section>
+<!-- HERO SECTION END -->
 
-    <!-- FEATURE SECTION END -->
-    
-    <!-- JOB OPPORTUNITIES SECTION -->
-    <section class="bg-gray-200 py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Latest Job Opportunities</h2>
-            <div class="mt-8 space-y-6">
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Assistant Clerk - NIEPMD</h3>
-                    <p class="text-gray-600">Chennai, India | Full-Time</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Apply Now</a>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold">Customer Support - PwD Quota</h3>
-                    <p class="text-gray-600">Remote | Part-Time</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Apply Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- JOB OPPORTUNITIES SECTION END -->
+<!-- FEATURE SECTION START -->
+<section class="py-16">
+  <div class="mx-auto px-6">
+    <h2 class="text-black text-3xl font-bold text-center dark:text-white">Why Choose Udyog Saarthi?</h2>
+    <div class="grid md:grid-cols-3 gap-8 mt-10">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-black text-xl font-semibold dark:text-white">Job Coaching</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Access structured training programs designed to improve your
+          skills.</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-black text-xl font-semibold dark:text-white">Training Materials</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Get learning resources including videos, quizzes, and guides.
+        </p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-black text-xl font-semibold dark:text-white">Job Opportunities</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Find jobs that match your skills and eligibility under the 4%
+          reservation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FEATURE SECTION END -->
 
-    <!-- FOOTER START -->
-    <footer class="bg-blue-600 text-white py-6 text-center">
-        <p>&copy; 2025 Udyog Saarthi. All Rights Reserved.</p>
-    </footer>
-    <!-- FOOTER END -->
+<!-- JOB OPPORTUNITIES SECTION -->
+<section class="bg-gray-200 dark:bg-gray-700 py-16">
+  <div class="mx-auto px-6">
+    <h2 class="text-black text-3xl font-bold text-center dark:text-white">Latest Job Opportunities</h2>
+    <div class="mt-8 space-y-6">
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+        <h3 class="text-black text-xl font-semibold dark:text-white">Assistant Clerk - NIEPMD</h3>
+        <p class="text-gray-600 dark:text-gray-300">Chennai, India | Full-Time</p>
+        <a href="#" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Apply Now</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+        <h3 class="text-black text-xl font-semibold dark:text-white">Customer Support - PwD Quota</h3>
+        <p class="text-gray-600 dark:text-gray-300">Remote | Part-Time</p>
+        <a href="#" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- JOB OPPORTUNITIES SECTION END -->
 
+<!-- FOOTER START -->
+<footer class="bg-blue-600 dark:bg-blue-800 text-white py-6 text-center">
+  <p>&copy; 2025 Udyog Saarthi. All Rights Reserved.</p>
+</footer>
+<!-- FOOTER END -->
+
+<!-- Dark Mode Script -->
+<script>
+  // Dark Mode Toggle Logic
+  // Dark Mode Toggle Logic
+  const themeToggle = document.querySelector('input[type="checkbox"]');
+  const themeToggleSpan = document.querySelector('input[type="checkbox"] + span');
+  const html = document.documentElement;
+
+  // Function to apply theme
+  function applyTheme(isDark) {
+    if (isDark) {
+      html.classList.add('dark');
+      themeToggle.checked = true;
+      themeToggleSpan.textContent = 'ON';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      html.classList.remove('dark');
+      themeToggle.checked = false;
+      themeToggleSpan.textContent = 'OFF';
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+  // Initial theme setup
+  if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+    applyTheme(true);
+  } else {
+    applyTheme(false);
+  }
+
+  // Toggle theme on checkbox change
+  themeToggle.addEventListener('change', () => {
+    const isDark = themeToggle.checked;
+    applyTheme(isDark);
+  });
+
+  // Listen for system theme changes
+  prefersDarkScheme.addListener((e) => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches);
+    }
+  });
+</script>
 </body>
 
 </html>
