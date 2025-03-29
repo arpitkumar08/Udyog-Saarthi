@@ -5,108 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training - Udyog Saarthi</title>
-
     <link rel="icon" type="image/png" href="/assets/logo.webp">
     <link rel="stylesheet" href="/src/output.css">
 </head>
 
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- HEADER START -->
-    <header class="bg-blue-600 text-white py-4 shadow-lg">
+<body class="bg-gradient-to-b from-blue-100 to-gray-100 text-gray-900">
+    
+    <!-- HEADER -->
+    <header class="bg-white shadow-md py-4">
         <div class="container mx-auto flex justify-between items-center px-6">
-            <a href="index.html" class="text-2xl font-bold">Udyog Saarthi</a>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">🏠 Home</a></li>
-                    <li><a href="#" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">🏫 Job Coaching</a></li>
-                    <li><a href="training.html" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">🏢 Training</a></li>
-                    <li><a href="#" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">💼 Jobs</a></li>
-                    <li><a href="contact.html" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">☎️ Contact</a></li>
-                </ul>
+            <a href="index.html" class="text-3xl font-extrabold text-blue-600">Udyog Saarthi</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 font-semibold">🏠 Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold">🏫 Job Coaching</a>
+                <a href="training.html" class="text-gray-700 hover:text-blue-600 font-semibold">🏢 Training</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold">💼 Jobs</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-600 font-semibold">☎️ Contact</a>
             </nav>
         </div>
     </header>
-    <!-- HEADER END -->
-
-    <!-- HERO SECTION START -->
-    <section class="bg-blue-500 text-white py-20 text-center">
-        <div class="mx-auto px-6">
-            <h2 class="text-4xl font-bold">Enhance Your Skills with Training</h2>
-            <p class="mt-4 text-lg">Explore structured courses and learning materials to boost your career.</p>
+    
+    <!-- HERO SECTION -->
+    <section class="bg-blue-500 text-white text-center py-20 rounded-b-3xl shadow-lg">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-extrabold">Enhance Your Skills</h1>
+            <p class="mt-3 text-lg">Explore courses designed to boost your career.</p>
         </div>
     </section>
-    <!-- HERO SECTION END -->
 
-    <!-- TRAINING PROGRAMS SECTION START -->
+    <!-- TRAINING PROGRAMS -->
     <section class="py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Available Training Programs</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Soft Skills Development</h3>
-                    <p class="mt-2 text-gray-600">Learn communication, teamwork, and leadership skills.</p>
-                    <a href="softSkills.html" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-blue-600">Training Programs</h2>
+            <div class="grid md:grid-cols-3 gap-10 mt-15 place-items-center">
+                <div class="h-96 w-70 bg-gradient-to-b from-blue-300 to-blue-500 rounded-2xl shadow-lg transition-transform transform hover:scale-110 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100">
+                        <span class="text-6xl">💡</span>
+                        <h3 class="text-2xl font-semibold mt-2">Soft Skills</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-blue-600 opacity-0 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 transition-opacity duration-300">
+                        <p class="mt-2">Improve communication & leadership skills.</p>
+                        <a href="softSkills.html" class="mt-4 inline-block font-bold underline">Read More</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Technical Training</h3>
-                    <p class="mt-2 text-gray-600">Master industry-relevant technical skills and software tools.</p>
-                    <a href="tech.html" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+                <div class="h-96 w-70 bg-gradient-to-b from-blue-300 to-blue-500 rounded-2xl shadow-lg transition-transform transform hover:scale-110 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100">
+                        <span class="text-6xl">🖥️</span>
+                        <h3 class="text-2xl font-semibold mt-2">Technical Training</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-blue-600 opacity-0 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 transition-opacity duration-300">
+                        <p class="mt-2">Learn industry-relevant tools & tech.</p>
+                        <a href="tech.html" class="mt-4 inline-block font-bold underline">Read More</a>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Interview Preparation</h3>
-                    <p class="mt-2 text-gray-600">Get tips and mock interview sessions to excel in job interviews.</p>
-                    <a href="interview.html" class="text-blue-600 font-semibold hover:underline">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- TRAINING PROGRAMS SECTION END -->
-
-    <!-- ADDITIONAL TRAINING RESOURCES SECTION -->
-    <section class="bg-gray-200 py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Additional Learning Resources</h2>
-            <div class="grid md:grid-cols-2 gap-8 mt-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold">Webinars & Workshops</h3>
-                    <p class="mt-2 text-gray-600">Join live sessions with industry experts to gain insights into career growth.</p>
-                    <a href="sessions.html" class="text-blue-600 font-semibold hover:underline">Learn More</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold">Certification Programs</h3>
-                    <p class="mt-2 text-gray-600">Earn industry-recognized certificates to boost your resume.</p>
-                    <a href="cert.html" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+                <div class="h-96 w-70 bg-gradient-to-b from-blue-300 to-blue-500 rounded-2xl shadow-lg transition-transform transform hover:scale-110 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100">
+                        <span class="text-6xl">🎤</span>
+                        <h3 class="text-2xl font-semibold mt-2">Interview Prep</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-blue-600 opacity-0 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 transition-opacity duration-300">
+                        <p class="mt-2">Ace your job interviews with expert guidance.</p>
+                        <a href="interview.html" class="mt-4 inline-block font-bold underline">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ADDITIONAL TRAINING RESOURCES SECTION END -->
 
+    <!-- ADDITIONAL LEARNING RESOURCES -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-blue-600">Additional Learning Resources</h2>
+            <div class="grid md:grid-cols-2 gap-10 mt-15 place-items-center">
+                <div class="h-96 w-80 bg-gradient-to-b from-blue-300 to-blue-500 rounded-2xl shadow-lg transition-transform transform hover:scale-110 flex items-center justify-center relative overflow-hidden ">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100">
+                        <span class="text-6xl">📅</span>
+                        <h3 class="text-2xl font-semibold mt-2">Webinars & Workshops</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-blue-600 opacity-0 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 transition-opacity duration-300">
+                        <p class="mt-2">Join live sessions with industry experts.</p>
+                        <a href="sessions.html" class="mt-4 inline-block font-bold underline">Learn More</a>
+                    </div>
+                </div>
+                <div class="h-96 w-80 bg-gradient-to-b from-blue-300 to-blue-500 rounded-2xl shadow-lg transition-transform transform hover:scale-110 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100">
+                        <span class="text-6xl">🏆</span>
+                        <h3 class="text-2xl font-semibold mt-2">Certification Programs</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-blue-600 opacity-0 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 transition-opacity duration-300">
+                        <p class="mt-2">Earn industry-recognized certificates.</p>
+                        <a href="cert.html" class="mt-4 inline-block font-bold underline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- TESTIMONIALS SECTION -->
-    <section class="py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">What Our Trainees Say</h2>
-            <div class="grid md:grid-cols-2 gap-8 mt-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <p class="text-gray-600 italic">"The training programs provided by Udyog Saarthi have helped me secure my first job!"</p>
-                    <h4 class="mt-4 font-semibold">- Rahul Sharma</h4>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <p class="text-gray-600 italic">"The interview preparation course was a game-changer for me. Highly recommended!"</p>
-                    <h4 class="mt-4 font-semibold">- Priya Verma</h4>
-                </div>
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-blue-600">What Our Trainees Say</h2>
+            <div class="mt-10 space-y-8">
+                <blockquote class="text-xl italic text-gray-700">“The training programs provided by Udyog Saarthi have helped me secure my first job!”</blockquote>
+                <p class="font-semibold text-blue-700">- Rahul Sharma</p>
+                <blockquote class="text-xl italic text-gray-700">“The interview preparation course was a game-changer for me. Highly recommended!”</blockquote>
+                <p class="font-semibold text-blue-700">- Priya Verma</p>
             </div>
         </div>
     </section>
-    <!-- TESTIMONIALS SECTION END -->
 
-    <!-- FOOTER START -->
-    <footer class="bg-blue-600 text-white py-6 text-center">
+    <!-- FOOTER -->
+    <footer class="bg-blue-600 text-white text-center py-6 rounded-t-3xl">
         <p>&copy; 2025 Udyog Saarthi. All Rights Reserved.</p>
     </footer>
-    <!-- FOOTER END -->
-
+    
 </body>
-
 </html>
