@@ -12,18 +12,17 @@
 
 <body class="bg-gray-100 text-gray-900">
 
-    <!-- HEADER START -->
-    <header class="bg-blue-600 text-white py-4 shadow-lg">
+    <!-- HEADER -->
+    <header class="bg-white shadow-md py-4 fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto flex justify-between items-center px-6">
-            <a href="index.html" class="text-2xl font-bold">Udyog Saarthi</a>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">🏠 Home</a></li>
-                    <li><a href="#" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">🏫 Job Coaching</a></li>
-                    <li><a href="training.html" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">🏢 Training</a></li>
-                    <li><a href="#" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">💼 Jobs</a></li>
-                    <li><a href="contact.html" class="text-white px-4 py-2 rounded-md hover:bg-white hover:text-blue-600">☎️ Contact</a></li>
-                </ul>
+            <a href="index.html" class="text-3xl font-extrabold text-blue-600">Udyog Saarthi</a>
+            <button class="md:hidden text-gray-700">☰</button>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 font-semibold">🏠 Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold">🏫 Job Coaching</a>
+                <a href="training.html" class="text-gray-700 hover:text-blue-600 font-semibold">🏢 Training</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold">💼 Jobs</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-600 font-semibold">☎️ Contact</a>
             </nav>
         </div>
     </header>
@@ -31,7 +30,7 @@
 
     <!-- HERO SECTION START -->
     <section class="bg-blue-500 text-white py-20 text-center">
-        <div class="mx-auto px-6">
+        <div class="mx-auto px-6 max-w-3xl">
             <h2 class="text-4xl font-bold">Boost Your Career with Technical Training</h2>
             <p class="mt-4 text-lg">Master industry-specific skills and stay ahead in your career.</p>
         </div>
@@ -40,23 +39,20 @@
 
     <!-- TECHNICAL TRAINING PROGRAMS SECTION START -->
     <section class="py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Key Technical Training Programs</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Web Development</h3>
-                    <p class="mt-2 text-gray-600">Learn HTML, CSS, JavaScript, and modern frameworks to build responsive websites.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+        <div class="mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-8">Key Technical Training Programs</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                <div class="bg-white p-6 rounded-full shadow-xl flex flex-col items-center justify-center text-center w-64 h-64 mx-auto border-2 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-700">Web Development</h3>
+                    <p class="mt-2 text-gray-600 text-base font-medium">Learn HTML, CSS, JavaScript, and modern frameworks.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Data Analytics</h3>
-                    <p class="mt-2 text-gray-600">Gain expertise in data analysis, visualization, and interpretation using industry tools.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+                <div class="bg-white p-6 rounded-full shadow-xl flex flex-col items-center justify-center text-center w-64 h-64 mx-auto border-2 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-700">Data Analytics</h3>
+                    <p class="mt-2 text-gray-600 text-base font-medium">Gain expertise in data analysis, visualization, and interpretation.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Software Development</h3>
-                    <p class="mt-2 text-gray-600">Understand programming concepts, algorithms, and software development best practices.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+                <div class="bg-white p-6 rounded-full shadow-xl flex flex-col items-center justify-center text-center w-64 h-64 mx-auto border-2 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-700">Software Development</h3>
+                    <p class="mt-2 text-gray-600 text-base font-medium">Understand programming concepts and best practices.</p>
                 </div>
             </div>
         </div>
@@ -65,18 +61,16 @@
 
     <!-- ADDITIONAL TECHNICAL RESOURCES SECTION -->
     <section class="bg-gray-200 py-16">
-        <div class="mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center">Advanced Technical Courses</h2>
-            <div class="grid md:grid-cols-2 gap-8 mt-10">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Cybersecurity</h3>
-                    <p class="mt-2 text-gray-600">Understand cybersecurity fundamentals, ethical hacking, and data protection.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+        <div class="mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-bold text-center mb-8">Advanced Technical Courses</h2>
+            <div class="grid md:grid-cols-2 gap-8 justify-center">
+                <div class="bg-white p-6 rounded-full shadow-xl flex flex-col items-center justify-center text-center w-64 h-64 mx-auto border-2 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-700">Cybersecurity</h3>
+                    <p class="mt-2 text-gray-600 text-base font-medium">Learn ethical hacking, data protection, and security fundamentals.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-semibold">Cloud Computing</h3>
-                    <p class="mt-2 text-gray-600">Learn about cloud infrastructure, deployment, and security for enterprise solutions.</p>
-                    <a href="#" class="text-blue-600 font-semibold hover:underline">Learn More</a>
+                <div class="bg-white p-6 rounded-full shadow-xl flex flex-col items-center justify-center text-center w-64 h-64 mx-auto border-2 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-700">Cloud Computing</h3>
+                    <p class="mt-2 text-gray-600 text-base font-medium">Understand cloud infrastructure, deployment, and security.</p>
                 </div>
             </div>
         </div>
