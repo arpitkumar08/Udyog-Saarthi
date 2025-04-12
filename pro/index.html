@@ -2,277 +2,313 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Udyog Saarthi App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udyog Saarthi</title>
+    <link rel="icon" type="image/png" href="/assets/logo.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-  <link rel="icon" type="image/png" href="/assets/logo.webp">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
 
-    .gradient-bg {
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    }
+        .accent-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+        }
 
-    .accent-gradient {
-      background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-    }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
 
-    .card-hover {
-      transition: all 0.3s ease;
-    }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
 
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
 
-    
-    
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
 
-    .theme-toggle-track {
-      transition: all 0.3s ease;
-    }
+            50% {
+                transform: scale(1.05);
+            }
 
-    .theme-toggle-thumb {
-      transition: all 0.5s cubic-bezier(0.18, 0.89, 0.35, 1.15);
-    }
+            100% {
+                transform: scale(1);
+            }
+        }
 
-    
+        .theme-toggle-track {
+            transition: all 0.3s ease;
+        }
 
-    
+        .theme-toggle-thumb {
+            transition: all 0.5s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+        }
 
-    /* Fix for dark mode toggle */
-    #theme-toggle:checked+.theme-toggle-track .theme-toggle-thumb {
-      transform: translateX(1.5rem);
-    }
-  </style>
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Fix for dark mode toggle */
+        #theme-toggle:checked+.theme-toggle-track .theme-toggle-thumb {
+            transform: translateX(1.5rem);
+        }
+    </style>
 </head>
 
+
 <body
-  class="bg-gradient-to-br from-blue-50 to-purple-50 text-gray-800 dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 transition-colors duration-300">
+    class="bg-gradient-to-br from-blue-50 to-purple-50 text-gray-800 dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 transition-colors duration-300">
 
-  <!-- HEADER START -->
-  <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10">
-    <div class="container mx-auto flex justify-between items-center px-6">
-      <a href="index.html" class="flex items-center space-x-2">
-        <div class=" rounded-full p-2 ">
-          <div>
-            <img src="/assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
-          </div>
+    <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class=" rounded-full p-2 ">
+                    <div>
+                        <img src="/assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                    </div>
+                </div>
+                <span class="text-2xl font-bold">Udyog Saarthi</span>
+            </a>
+
+            <nav class="hidden md:block">
+                <ul class="flex items-center justify-center space-x-2">
+                    <li>
+                        <a href="index.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Job Coaching</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="training.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Training</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+
+                    <!-- Theme Toggle Button -->
+                    <li>
+                        <button id="theme-toggle"
+                            class="p-2 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" data-slot="icon" class="h-5 w-5">
+                                <path
+                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <style>
+                            input:checked {
+                                background-color: #22c55e;
+                                /* bg-green-500 */
+                            }
+
+                            input:checked~span:last-child {
+                                --tw-translate-x: 1.75rem;
+                                /* translate-x-7 */
+                            }
+                        </style>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <span class="text-2xl font-bold">Udyog Saarthi</span>
-      </a>
+    </header>
 
-      <nav class="hidden md:block">
-        <ul class="flex items-center justify-center space-x-2">
-          <li>
-            <a href="index.html"
-              class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition-all">
-              <i class="fas fa-home"></i>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
-              <i class="fas fa-user-graduate"></i>
-              <span>Job Coaching</span>
-            </a>
-          </li>
-          <li>
-            <a href="training.html"
-              class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
-              <i class="fas fa-laptop-code"></i>
-              <span>Training</span>
-            </a>
-          </li>
-          <li>
-            <a href="#"
-              class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
-              <i class="fas fa-briefcase"></i>
-              <span>Jobs</span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html"
-              class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
-              <i class="fas fa-phone-alt"></i>
-              <span>Contact</span>
-            </a>
-          </li>
+    <!-- HERO SECTION START -->
+    <section class="pt-32 pb-16 overflow-hidden w-full">
+        <div class="container mx-auto px-6 text-center w-full mt-12">
+            <div class="flex flex-col items-center justify-center text-center w-full">
+                <div class="w-full flex flex-col items-center">
+                    <h1
+                        class="w-full text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text text-center leading-16">
+                        Empowering Careers for Everyone
+                    </h1>
 
-          <!-- Theme Toggle Button -->
-          <li>
-            <label class="flex items-center relative w-max cursor-pointer select-none">
-              <input id="theme-toggle" type="checkbox"
-                class="appearance-none transition-colors cursor-pointer w-14 h-7 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-blue-500 bg-red-500" />
-              <span class="absolute font-medium text-xs uppercase right-1 text-white">OFF</span>
-              <span class="absolute font-medium text-xs uppercase right-8 text-white">ON</span>
-              <span class="w-7 h-7 right-7 absolute rounded-full transform transition-transform bg-gray-200"></span>
-            </label>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+                        Get access to personalized job coaching, comprehensive training materials, and exclusive job
+                        opportunities
+                        under the 4% reservation.
+                    </p>
 
-            <style>
-              input:checked {
-                background-color: #22c55e;
-                /* bg-green-500 */
-              }
-
-              input:checked~span:last-child {
-                --tw-translate-x: 1.75rem;
-                /* translate-x-7 */
-              }
-            </style>
-          </li>
-        </ul>
-      </nav>
-
-
-    </div>
-  </header>
-  <!-- HEADER END -->
-
-  <!-- HERO SECTION START -->
-  <section class="pt-32 pb-16 overflow-hidden w-full">
-    <div class="container mx-auto px-6 text-center w-full mt-12">
-      <div class="flex flex-col items-center justify-center text-center w-full">
-        <div class="w-full flex flex-col items-center">
-          <h1
-            class="w-full text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text text-center leading-16">
-            Empowering Careers for Everyone
-          </h1>
-  
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-            Get access to personalized job coaching, comprehensive training materials, and exclusive job opportunities
-            under the 4% reservation.
-          </p>
-  
-          <div class="flex flex-wrap justify-center gap-4">
-            <a href="#"
-              class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:shadow-lg transform transition hover:-translate-y-1">
-              Find Jobs Now
-            </a>
-            <a href="#"
-              class="px-8 py-3 rounded-full border-2 border-purple-500 text-purple-600 dark:text-purple-400 font-medium hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
-              Start Training
-            </a>
-          </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#"
+                            class="px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:shadow-lg transform transition hover:-translate-y-1">
+                            Find Jobs Now
+                        </a>
+                        <a href="#"
+                            class="px-8 py-3 rounded-full border-2 border-purple-500 text-purple-600 dark:text-purple-400 font-medium hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
+                            Start Training
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  
-  <!-- HERO SECTION END -->
+    </section>
 
-  <!-- SERVICES SECTION START -->
-  <section class="py-20">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2
-          class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
-          Our Services</h2>
-        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Comprehensive support for your career journey with
-          personalized guidance and opportunities.</p>
-      </div>
 
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-          <div class="h-40 accent-gradient flex items-center justify-center">
-            <i class="fas fa-user-tie text-6xl text-white"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-3">Job Coaching</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Access personalized guidance and structured training
-              programs designed to improve your skills and job readiness.</p>
-            <a href="#" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
-              Learn More
-              <i class="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
-          </div>
-        </div>
+    <!-- HERO SECTION END -->
 
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-          <div class="h-40 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
-            <i class="fas fa-laptop text-6xl text-white"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-3">Training Materials</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Get interactive learning resources including videos,
-              quizzes, and comprehensive skill development guides.</p>
-            <a href="#" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
-              Explore Resources
-              <i class="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
-          </div>
-        </div>
+    <!-- SERVICES SECTION START -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
+                    Our Services</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Comprehensive support for your career
+                    journey with
+                    personalized guidance and opportunities.</p>
+            </div>
 
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-          <div class="h-40 bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center">
-            <i class="fas fa-briefcase text-6xl text-white"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-3">Job Opportunities</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Find curated job openings that match your skills and
-              eligibility under the 4% reservation policy.</p>
-            <a href="#" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
-              Browse Jobs
-              <i class="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- SERVICES SECTION END -->
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                    <div class="h-40 accent-gradient flex items-center justify-center">
+                        <i class="fas fa-user-tie text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Job Coaching</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Access personalized guidance and structured
+                            training
+                            programs designed to improve your skills and job readiness.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                            Learn More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- STATS SECTION START -->
-  <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-4xl font-bold mb-2">2,500+</div>
-          <div class="opacity-80">Successful Placements</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-2">150+</div>
-          <div class="opacity-80">Partner Companies</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-2">85%</div>
-          <div class="opacity-80">Placement Rate</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-2">5,000+</div>
-          <div class="opacity-80">Training Hours</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- STATS SECTION END -->
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
+                        <i class="fas fa-laptop text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Training Materials</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Get interactive learning resources including
+                            videos,
+                            quizzes, and comprehensive skill development guides.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                            Explore Resources
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- LATEST JOBS SECTION START -->
-  <section class="py-20">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2
-          class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
-          Latest Job Opportunities</h2>
-        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our curated list of job openings available
-          under the 4% reservation policy.</p>
-      </div>
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center">
+                        <i class="fas fa-briefcase text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Job Opportunities</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Find curated job openings that match your
+                            skills and
+                            eligibility under the 4% reservation policy.</p>
+                        <a href="#"
+                            class="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                            Browse Jobs
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SERVICES SECTION END -->
+
+    <!-- STATS SECTION START -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold mb-2">2,500+</div>
+                    <div class="opacity-80">Successful Placements</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">150+</div>
+                    <div class="opacity-80">Partner Companies</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">85%</div>
+                    <div class="opacity-80">Placement Rate</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">5,000+</div>
+                    <div class="opacity-80">Training Hours</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- STATS SECTION END -->
+
+    <!-- LATEST JOBS SECTION START -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
+                    Latest Job Opportunities</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our curated list of job openings
+                    available
+                    under the 4% reservation policy.</p>
+            </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-blue-500">
@@ -300,329 +336,339 @@
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
             <span class="text-gray-600 dark:text-gray-300">Posted 2 days ago</span>
-            <a href="applicationForm.html" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition">Apply Now</a>
+            <a href="form.html" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition">Apply Now</a>
           </div>
         </div>
 
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-purple-500">
-          <div class="flex justify-between items-start">
-            <div>
-              <h3 class="text-xl font-semibold mb-2">Customer Support - PwD Quota</h3>
-              <div class="flex items-center space-x-4 mb-3">
-                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
-                    class="fas fa-map-marker-alt mr-2 text-red-500"></i> Remote</span>
-                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
-                    class="fas fa-clock mr-2 text-blue-500"></i> Part-Time</span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">Join our customer support team to provide assistance to
-                clients through phone and email channels.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded-full text-sm">Customer
-                  Service</span>
-                <span
-                  class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full text-sm">Work
-                  from Home</span>
-              </div>
-            </div>
-            <span
-              class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-sm font-medium px-3 py-1 rounded-full">Featured</span>
-          </div>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
-            <span class="text-gray-600 dark:text-gray-300">Posted 5 days ago</span>
-            <a href="#" class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition">Apply
-              Now</a>
-          </div>
-        </div>
-
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-green-500">
-          <div class="flex justify-between items-start">
-            <div>
-              <h3 class="text-xl font-semibold mb-2">Web Developer - Junior</h3>
-              <div class="flex items-center space-x-4 mb-3">
-                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
-                    class="fas fa-map-marker-alt mr-2 text-red-500"></i> Bangalore, India</span>
-                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
-                    class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">Join our development team to build accessible web
-                applications with modern technologies.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm">Technology</span>
-                <span
-                  class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full text-sm">Entry
-                  Level</span>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
-            <span class="text-gray-600 dark:text-gray-300">Posted 1 week ago</span>
-            <a href="#" class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full transition">Apply
-              Now</a>
-          </div>
-        </div>
-
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-red-500">
-          <div class="flex justify-between items-start">
-            <div>
-              <h3 class="text-xl font-semibold mb-2">Office Administrator</h3>
-              <div class="flex items-center space-x-4 mb-3">
-                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
-                    class="fas fa-map-marker-alt mr-2 text-red-500"></i> Delhi, India</span>
-                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
-                    class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">Handle administrative tasks and support day-to-day
-                operations of our Delhi office.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded-full text-sm">Administrative</span>
-                <span
-                  class="px-3 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-sm">Mid
-                  Level</span>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
-            <span class="text-gray-600 dark:text-gray-300">Posted 2 weeks ago</span>
-            <a href="#" class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full transition">Apply Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="#"
-          class="inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:shadow-lg transform transition hover:-translate-y-1">
-          View All Job Opportunities
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- LATEST JOBS SECTION END -->
-
-  <!-- TESTIMONIALS SECTION START -->
-  <section class="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2
-          class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
-          Success Stories</h2>
-        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Hear from individuals who found their career path
-          through Udyog Saarthi.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 mb-4 flex items-center justify-center text-white text-2xl font-bold">
-              RS
-            </div>
-            <h3 class="text-xl font-semibold mb-1">Rajesh Singh</h3>
-            <p class="text-blue-600 dark:text-blue-400 mb-4">Software Developer</p>
-            <div class="text-yellow-400 mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 italic">
-              "Udyog Saarthi helped me gain the skills and confidence needed to secure a job as a software developer.
-              Their coaching and training were invaluable."
-            </p>
-          </div>
-        </div>
-
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-red-500 mb-4 flex items-center justify-center text-white text-2xl font-bold">
-              PS
-            </div>
-            <h3 class="text-xl font-semibold mb-1">Priya Sharma</h3>
-            <p class="text-blue-600 dark:text-blue-400 mb-4">HR Assistant</p>
-            <div class="text-yellow-400 mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 italic">
-              "The job coaching services at Udyog Saarthi were personalized to my needs. They helped me prepare for
-              interviews and land my dream job."
-            </p>
-          </div>
-        </div>
-
-        <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="w-20 h-20 rounded-full bg-gradient-to-r from-green-500 to-teal-500 mb-4 flex items-center justify-center text-white text-2xl font-bold">
-              AK
-            </div>
-            <h3 class="text-xl font-semibold mb-1">Amit Kumar</h3>
-            <p class="text-blue-600 dark:text-blue-400 mb-4">Customer Support Specialist</p>
-            <div class="text-yellow-400 mb-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 italic">
-              "Working remotely seemed impossible until Udyog Saarthi connected me with a company that values my skills.
-              The training prepared me perfectly."
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- TESTIMONIALS SECTION END -->
-
-  <!-- CTA SECTION START -->
-  <section class="py-20">
-    <div class="container mx-auto px-6">
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl shadow-xl overflow-hidden">
-        <div class="md:flex items-center">
-          <div class="md:w-2/3 p-12">
-            <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Career Journey?</h2>
-            <p class="text-blue-100 mb-8">Register now to access personalized coaching, training resources, and
-              exclusive job opportunities under the 4% reservation policy.</p>
-            <div class="flex flex-wrap gap-4">
-              <a href="#"
-                class="px-8 py-3 rounded-full bg-white text-blue-600 font-medium hover:shadow-lg transform transition hover:-translate-y-1">
-                Register Now
-              </a>
-              <a href="#"
-                class="px-8 py-3 rounded-full border-2 border-white text-white font-medium hover:bg-white hover:text-blue-600 transition">
-                Learn More
-              </a>
-            </div>
-          </div>
-          <div class="md:w-1/3 p-12 flex justify-center">
-            <div class="bg-white bg-opacity-20 rounded-full p-6 pulse-animation">
-              <i class="fas fa-rocket text-white text-6xl"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- CTA SECTION END -->
-
-  <!-- FOOTER START -->
-  <footer class="gradient-bg text-white py-6">
-    <div class="container mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-8">
-            <div>
-                <div class="flex items-center space-x-2 mb-4">
-                    <div class="bg-white rounded-full p-2 shadow-lg">
-                        <i class="fas fa-hands-helping text-blue-600 text-xl"></i>
+                <div
+                    class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-purple-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Customer Support - PwD Quota</h3>
+                            <div class="flex items-center space-x-4 mb-3">
+                                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
+                                        class="fas fa-map-marker-alt mr-2 text-red-500"></i> Remote</span>
+                                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
+                                        class="fas fa-clock mr-2 text-blue-500"></i> Part-Time</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Join our customer support team to provide
+                                assistance to
+                                clients through phone and email channels.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded-full text-sm">Customer
+                                    Service</span>
+                                <span
+                                    class="px-3 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full text-sm">Work
+                                    from Home</span>
+                            </div>
+                        </div>
+                        <span
+                            class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-sm font-medium px-3 py-1 rounded-full">Featured</span>
                     </div>
-                    <span class="text-xl font-bold">Udyog Saarthi</span>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <span class="text-gray-600 dark:text-gray-300">Posted 5 days ago</span>
+                        <a href="form.html"
+                            class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition">Apply
+                            Now</a>
+                    </div>
                 </div>
-                <p class="text-blue-100 mb-4">Empowering careers for everyone through personalized guidance and equal
-                    opportunities.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-white hover:text-blue-200 transition">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-white hover:text-blue-200 transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-white hover:text-blue-200 transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-white hover:text-blue-200 transition">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-green-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Web Developer - Junior</h3>
+                            <div class="flex items-center space-x-4 mb-3">
+                                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
+                                        class="fas fa-map-marker-alt mr-2 text-red-500"></i> Bangalore, India</span>
+                                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
+                                        class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Join our development team to build
+                                accessible web
+                                applications with modern technologies.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm">Technology</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full text-sm">Entry
+                                    Level</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <span class="text-gray-600 dark:text-gray-300">Posted 1 week ago</span>
+                        <a href="form.html"
+                            class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full transition">Apply
+                            Now</a>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-red-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Office Administrator</h3>
+                            <div class="flex items-center space-x-4 mb-3">
+                                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
+                                        class="fas fa-map-marker-alt mr-2 text-red-500"></i> Delhi, India</span>
+                                <span class="flex items-center text-gray-600 dark:text-gray-300"><i
+                                        class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Handle administrative tasks and support
+                                day-to-day
+                                operations of our Delhi office.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded-full text-sm">Administrative</span>
+                                <span
+                                    class="px-3 py-1 bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 rounded-full text-sm">Mid
+                                    Level</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <span class="text-gray-600 dark:text-gray-300">Posted 2 weeks ago</span>
+                        <a href="form.html"
+                            class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full transition">Apply
+                            Now</a>
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">About Us</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">Services</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">Jobs</a></li>
-                    <li><a href="contact.html" class="text-blue-100 hover:text-white transition">Contact</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Resources</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">Training Materials</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">Career Guidance</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">Skill Assessment</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">Reservation Policy</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white transition">FAQ</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
-                <ul class="space-y-2">
-                    <li class="flex items-center">
-                        <i class="fas fa-map-marker-alt mr-2"></i>
-                        <span>123 Main Street, New Delhi, India</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-phone-alt mr-2"></i>
-                        <span>+91 98765 43210</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-envelope mr-2"></i>
-                        <span>info@udyogsaarthi.org</span>
-                    </li>
-                </ul>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:shadow-lg transform transition hover:-translate-y-1">
+                    View All Job Opportunities
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
+    </section>
+    <!-- LATEST JOBS SECTION END -->
 
-        <div class="border-t border-blue-500 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2025 Udyog Saarthi. All rights reserved.</p>
-            <div class="flex space-x-4 mt-4 md:mt-0">
-                <a href="#" class="text-blue-100 hover:text-white transition">Privacy Policy</a>
-                <a href="#" class="text-blue-100 hover:text-white transition">Terms of Service</a>
-                <a href="#" class="text-blue-100 hover:text-white transition">Accessibility</a>
+    <!-- TESTIMONIALS SECTION START -->
+    <section class="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
+                    Success Stories</h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Hear from individuals who found their
+                    career path
+                    through Udyog Saarthi.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                            RS
+                        </div>
+                        <h3 class="text-xl font-semibold mb-1">Rajesh Singh</h3>
+                        <p class="text-blue-600 dark:text-blue-400 mb-4">Software Developer</p>
+                        <div class="text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "Udyog Saarthi helped me gain the skills and confidence needed to secure a job as a software
+                            developer.
+                            Their coaching and training were invaluable."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-red-500 mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                            PS
+                        </div>
+                        <h3 class="text-xl font-semibold mb-1">Priya Sharma</h3>
+                        <p class="text-blue-600 dark:text-blue-400 mb-4">HR Assistant</p>
+                        <div class="text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "The job coaching services at Udyog Saarthi were personalized to my needs. They helped me
+                            prepare for
+                            interviews and land my dream job."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-20 h-20 rounded-full bg-gradient-to-r from-green-500 to-teal-500 mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                            AK
+                        </div>
+                        <h3 class="text-xl font-semibold mb-1">Amit Kumar</h3>
+                        <p class="text-blue-600 dark:text-blue-400 mb-4">Customer Support Specialist</p>
+                        <div class="text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "Working remotely seemed impossible until Udyog Saarthi connected me with a company that
+                            values my skills.
+                            The training prepared me perfectly."
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-  <!-- FOOTER END -->
+    </section>
+    <!-- TESTIMONIALS SECTION END -->
 
-  <!-- JAVASCRIPT -->
-  <script>
+    <!-- CTA SECTION START -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl shadow-xl overflow-hidden">
+                <div class="md:flex items-center">
+                    <div class="md:w-2/3 p-12">
+                        <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Career Journey?</h2>
+                        <p class="text-blue-100 mb-8">Register now to access personalized coaching, training resources,
+                            and
+                            exclusive job opportunities under the 4% reservation policy.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#"
+                                class="px-8 py-3 rounded-full bg-white text-blue-600 font-medium hover:shadow-lg transform transition hover:-translate-y-1">
+                                Register Now
+                            </a>
+                            <a href="#"
+                                class="px-8 py-3 rounded-full border-2 border-white text-white font-medium hover:bg-white hover:text-blue-600 transition">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 p-12 flex justify-center">
+                        <div class="bg-white bg-opacity-20 rounded-full p-6 pulse-animation">
+                            <i class="fas fa-rocket text-white text-6xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA SECTION END -->
 
-    // Dark mode toggle
-    const themeToggle = document.getElementById('theme-toggle');
+    <!-- FOOTER START -->
+    <footer class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-white rounded-full p-2 shadow-lg">
+                            <i class="fas fa-hands-helping text-blue-600 text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Udyog Saarthi</span>
+                    </div>
+                    <p class="text-blue-100 mb-4">Empowering careers for everyone through personalized guidance and
+                        equal
+                        opportunities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
 
-    // Check for saved theme preference or use system preference
-    if (localStorage.getItem('theme') === 'dark' ||
-      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      themeToggle.checked = true;
-    }
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Services</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Jobs</a></li>
+                        <li><a href="contact.html" class="text-blue-100 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
 
-    // Toggle theme on button click
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Training Materials</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Career Guidance</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Skill Assessment</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Reservation Policy</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>123 Main Street, New Delhi, India</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@udyogsaarthi.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-500 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2025 Udyog Saarthi. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-blue-100 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-blue-100 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-blue-100 hover:text-white transition">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
 
 
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        // Check for saved theme preference or use system preference
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
+
 
 </html>
