@@ -166,12 +166,10 @@
                     </li>
                 </ul>
             </nav>
-
-
         </div>
     </header>
     <main>
-        <form id="jobApplicationForm"
+        <form id="jobApplicationForm"  method="POST" action="application.php" enctype="multipart/form-data"
             class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 my-12 mt-40">
             <div class="text-center mb-8">
                 <h2
@@ -481,30 +479,30 @@
 
 
 
-     <!-- JAVASCRIPT -->
-  <script>
+    <!-- JAVASCRIPT -->
+    <script>
 
-    // Dark mode toggle
-    const themeToggle = document.getElementById('theme-toggle');
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
 
-    // Check for saved theme preference or use system preference
-    if (localStorage.getItem('theme') === 'dark' ||
-      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      themeToggle.checked = true;
-    }
+        // Check for saved theme preference or use system preference
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggle.checked = true;
+        }
 
-    // Toggle theme on button click
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
+        // Toggle theme on button click
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 
 </body>
 
