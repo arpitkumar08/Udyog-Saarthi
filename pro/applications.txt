@@ -1,0 +1,54 @@
+--------------------------
+New Application:
+Name: a f
+Email: f@dff
+Phone: cds
+Address: ,  - 
+
+Education:
+Degree: Diploma
+Institution: ds
+Field: 
+Graduation Year: 
+
+Work Experience:
+Company: 
+Position: 
+Start Date: 
+End Date: 
+Responsibilities: 
+
+Additional Info: 
+Agreed to Terms: Yes
+
+Files:
+Resume: uploads/Syllabus.pdf
+Certificate: 
+--------------------------
+--------------------------
+New Application:
+Name: S f
+Email: f@dff
+Phone: cds
+Address: ,  - 
+
+Education:
+Degree: Doctorate
+Institution: lpu
+Field: 
+Graduation Year: 
+
+Work Experience:
+Company: 
+Position: 
+Start Date: 
+End Date: 
+Responsibilities: 
+
+Additional Info: 
+Agreed to Terms: Yes
+
+Files:
+Resume: uploads/RK23DGB58_Project_CSE316_12300561OSCA2FINAL.pdf
+Certificate: 
+--------------------------
