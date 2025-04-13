@@ -52,3 +52,30 @@ Files:
 Resume: uploads/RK23DGB58_Project_CSE316_12300561OSCA2FINAL.pdf
 Certificate: 
 --------------------------
+--------------------------
+New Application:
+Name: Arpit  Kumar
+Email: arpitk.9938@gmail.com
+Phone: 9078357355
+Address: dfd,  - 
+
+Education:
+Degree: Bachelor&#039;s
+Institution: LPU
+Field: 
+Graduation Year: 
+
+Work Experience:
+Company: 
+Position: 
+Start Date: 
+End Date: 
+Responsibilities: 
+
+Additional Info: 
+Agreed to Terms: Yes
+
+Files:
+Resume: uploads/DeadlockDetectionTool.pdf
+Certificate: uploads/DeadlockDetectionTool.pdf
+--------------------------
