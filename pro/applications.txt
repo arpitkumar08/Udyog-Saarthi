@@ -57,10 +57,17 @@ New Application:
 Name: Arpit  Kumar
 Email: arpitk.9938@gmail.com
 Phone: 9078357355
+<<<<<<< HEAD
 Address: ,  - 
 
 Education:
 Degree: High School
+=======
+Address: dfd,  - 
+
+Education:
+Degree: Bachelor&#039;s
+>>>>>>> fbc5874b2b271f1fcc50e2574a0953137e4c92ff
 Institution: LPU
 Field: 
 Graduation Year: 
@@ -76,6 +83,7 @@ Additional Info:
 Agreed to Terms: Yes
 
 Files:
+<<<<<<< HEAD
 Resume: uploads/paymentProof.pdf
 Certificate: uploads/paymentProof.pdf
 --------------------------
@@ -105,4 +113,8 @@ Agreed to Terms: Yes
 Files:
 Resume: uploads/paymentProof.pdf
 Certificate: uploads/paymentProof.pdf
+=======
+Resume: uploads/DeadlockDetectionTool.pdf
+Certificate: uploads/DeadlockDetectionTool.pdf
+>>>>>>> fbc5874b2b271f1fcc50e2574a0953137e4c92ff
 --------------------------
