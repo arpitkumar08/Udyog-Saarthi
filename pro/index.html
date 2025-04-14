@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Udyog Saarthi</title>
-    <link rel="icon" type="image/png" href="/assets/logo.webp">
+    <link rel="icon" type="image/png" href="assets/logo.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
-    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -134,7 +130,7 @@
             <a href="index.html" class="flex items-center space-x-2">
                 <div class=" rounded-full p-2 ">
                     <div>
-                        <img src="/assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
                     </div>
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
@@ -382,31 +378,30 @@
         </div>
     </section>
     <!-- SERVICES SECTION END -->
-    <!-- SERVICES SECTION END -->
 
     <!-- STATS SECTION START -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <section id="statistics" class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
-                    <div class="text-4xl font-bold mb-2">2,500+</div>
+                    <div class="counter text-4xl font-bold mb-2" data-target="2500">0</div>
                     <div class="opacity-80">Successful Placements</div>
                 </div>
                 <div>
-                    <div class="text-4xl font-bold mb-2">150+</div>
+                    <div class="counter text-4xl font-bold mb-2" data-target="150">0</div>
                     <div class="opacity-80">Partner Companies</div>
                 </div>
                 <div>
-                    <div class="text-4xl font-bold mb-2">85%</div>
+                    <div class="counter text-4xl font-bold mb-2" data-target="85" data-suffix="%">0%</div>
                     <div class="opacity-80">Placement Rate</div>
                 </div>
                 <div>
-                    <div class="text-4xl font-bold mb-2">5,000+</div>
+                    <div class="counter text-4xl font-bold mb-2" data-target="5000">0</div>
                     <div class="opacity-80">Training Hours</div>
                 </div>
             </div>
         </div>
-    </section>
+    </section>  
     <!-- STATS SECTION END -->
 
     <!-- LATEST JOBS SECTION START -->
@@ -761,58 +756,13 @@
     </footer>
     <!-- FOOTER END -->
 
+    <script src="dark.js"></script>
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
+    <script src="smallScreen.js"></script>
 
-        // Check for saved theme preference or use system preference
-        if (localStorage.getItem('theme') === 'dark' ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
+    <script src="counter.js"></script>
 
-        // Toggle theme on button click
-        themeToggle.addEventListener('click', () => {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
 
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('overlay');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        overlay.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Mobile theme toggle
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        mobileThemeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        });
-    </script>
 </body>
 
 

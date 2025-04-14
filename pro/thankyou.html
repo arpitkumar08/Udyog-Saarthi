@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    h1 {
-      color: #4CAF50;
-    }
-    p {
-      font-size: 1.2em;
-      color: #333;
+
+    .glass {
+      backdrop-filter: blur(20px);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
-<body>
-  <h1>Thank You for Your Application!</h1>
-  <p>Your application has been submitted successfully. We will review your details and get back to you soon.</p>
+
+<body class="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center px-4">
+  <div class="glass max-w-xl w-full p-8 rounded-3xl shadow-xl text-center text-white animate-fadeIn">
+    <svg class="mx-auto mb-4 w-16 h-16 text-green-300" fill="none" stroke="currentColor" stroke-width="1.5"
+      viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+    <h1 class="text-4xl font-bold mb-4">Thank You!</h1>
+    <p class="text-lg leading-relaxed">Your application has been submitted successfully. We’ll review your details and
+      get back to you shortly.</p>
+    <a href="/" class="inline-block mt-6 px-6 py-2 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-100 transition">Back to Home</a>
+  </div>
+
+
 </body>
+
 </html>
