@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Form</title>
-    <link rel="icon" type="image/png" href="/assets/logo.webp">
+    <link rel="icon" type="image/png" href="assets/logo.webp">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -131,7 +131,7 @@
             <a href="index.html" class="flex items-center space-x-2">
                 <div class=" rounded-full p-2 ">
                     <div>
-                        <img src="/assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
                     </div>
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
@@ -139,7 +139,6 @@
 
             <!-- Hamburger Menu Button for mobile -->
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-<<<<<<< HEAD
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -148,13 +147,7 @@
             </button>
 
             <!-- Desktop Navigation -->
-=======
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
 
->>>>>>> fbc5874b2b271f1fcc50e2574a0953137e4c92ff
             <nav class="hidden md:block">
                 <ul class="flex items-center justify-center space-x-2">
                     <li>
@@ -204,7 +197,6 @@
                                 </path>
                             </svg>
                         </button>
-<<<<<<< HEAD
 
                         <style>
                             input:checked {
@@ -217,8 +209,6 @@
                                 /* translate-x-7 */
                             }
                         </style>
-=======
->>>>>>> fbc5874b2b271f1fcc50e2574a0953137e4c92ff
                     </li>
                 </ul>
             </nav>
@@ -668,61 +658,8 @@
 
 
 
-<<<<<<< HEAD
-=======
-    <!-- JAVASCRIPT -->
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
 
-        // Check for saved theme preference or use system preference
-        if (localStorage.getItem('theme') === 'dark' ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-
-        // Toggle theme on button click
-        themeToggle.addEventListener('click', () => {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('overlay');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        overlay.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Mobile theme toggle
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        mobileThemeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        });
-    </script>
->>>>>>> fbc5874b2b271f1fcc50e2574a0953137e4c92ff
+    
 
     <script src="dark.js"></script>
     <script src="smallScreen.js"></script>
