@@ -98,16 +98,20 @@
     <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
         <div class="container mx-auto flex justify-between items-center px-6">
             <a href="index.html" class="flex items-center space-x-2">
-                <div class="rounded-full p-2">
-                    <img src="/assets/logo.webp" alt="Udyog Saarthi Logo" width="50" height="50" class="rounded-lg">
+                <div class=" rounded-full p-2 ">
+                    <div>
+                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                    </div>
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
             </a>
 
-            
+            <!-- Hamburger Menu Button for mobile -->
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
 
@@ -116,7 +120,7 @@
                 <ul class="flex items-center justify-center space-x-2">
                     <li>
                         <a href="index.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full ">
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
@@ -136,8 +140,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="job.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
+                        <a href="#"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30  hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-briefcase"></i>
                             <span>Jobs</span>
                         </a>
@@ -161,6 +165,18 @@
                                 </path>
                             </svg>
                         </button>
+
+                        <style>
+                            input:checked {
+                                background-color: #22c55e;
+                                /* bg-green-500 */
+                            }
+
+                            input:checked~span:last-child {
+                                --tw-translate-x: 1.75rem;
+                                /* translate-x-7 */
+                            }
+                        </style>
                     </li>
                 </ul>
             </nav>
@@ -173,15 +189,17 @@
                 <div class="flex justify-between items-center mb-6">
                     <span class="text-xl font-bold">Menu</span>
                     <button id="close-menu" class="text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
                 <ul class="space-y-2">
                     <li>
                         <a href="index.html"
-                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all">
                             <i class="fas fa-home w-6 text-center"></i>
                             <span>Home</span>
                         </a>
@@ -201,8 +219,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="job.html"
-                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-20 transition-all">
+                        <a href="#"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
                             <i class="fas fa-briefcase w-6 text-center"></i>
                             <span>Jobs</span>
                         </a>
