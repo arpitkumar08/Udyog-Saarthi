@@ -32,7 +32,40 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+         
+        /* Add these to your existing styles */
+        .disability-section {
+    transition: all 0.6s ease;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    max-height: 10000px;
+    overflow: hidden;
+}
 
+.disability-section.hidden {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+/* Different animation directions */
+.slide-out-left {
+    transform: translateX(-100%) scale(0.9);
+}
+
+.slide-out-right {
+    transform: translateX(100%) scale(0.9);
+}
+
+.zoom-out {
+    transform: scale(0.95);
+}
+
+.fade-only {
+    transform: none !important;
+}
         .disability-badge {
             position: absolute;
             top: -10px;
@@ -98,25 +131,16 @@
     <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
         <div class="container mx-auto flex justify-between items-center px-6">
             <a href="index.html" class="flex items-center space-x-2">
-<<<<<<< HEAD
-                <div class=" rounded-full p-2 ">
-                    <div>
-                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
-                    </div>
-=======
                 <div class="rounded-full p-2">
                     <img src="assets/logo.webp" alt="Udyog Saarthi Logo" width="50" height="50" class="rounded-lg">
->>>>>>> f523708 (logos updated)
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
             </a>
 
-            <!-- Hamburger Menu Button for mobile -->
+            
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
@@ -125,7 +149,7 @@
                 <ul class="flex items-center justify-center space-x-2">
                     <li>
                         <a href="index.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full ">
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
@@ -145,8 +169,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30  hover:bg-white hover:bg-opacity-20 transition-all">
+                        <a href="job.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
                             <i class="fas fa-briefcase"></i>
                             <span>Jobs</span>
                         </a>
@@ -170,18 +194,6 @@
                                 </path>
                             </svg>
                         </button>
-
-                        <style>
-                            input:checked {
-                                background-color: #22c55e;
-                                /* bg-green-500 */
-                            }
-
-                            input:checked~span:last-child {
-                                --tw-translate-x: 1.75rem;
-                                /* translate-x-7 */
-                            }
-                        </style>
                     </li>
                 </ul>
             </nav>
@@ -194,17 +206,15 @@
                 <div class="flex justify-between items-center mb-6">
                     <span class="text-xl font-bold">Menu</span>
                     <button id="close-menu" class="text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"></path>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
                 <ul class="space-y-2">
                     <li>
                         <a href="index.html"
-                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all">
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
                             <i class="fas fa-home w-6 text-center"></i>
                             <span>Home</span>
                         </a>
@@ -224,8 +234,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                        <a href="job.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-20 transition-all">
                             <i class="fas fa-briefcase w-6 text-center"></i>
                             <span>Jobs</span>
                         </a>
@@ -912,74 +922,129 @@
     </footer>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-
-        // Check for saved theme preference or use system preference
-        if (localStorage.getItem('theme') === 'dark' ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-
-        // Toggle theme on button click
-        function toggleTheme() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== THEME TOGGLE FUNCTIONALITY =====
+            const themeToggle = document.getElementById('theme-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+            // Check for saved theme preference or use system preference
+            if (localStorage.getItem('theme') === 'dark' ||
+                (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
             }
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-        mobileThemeToggle.addEventListener('click', toggleTheme);
-
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('overlay');
-
-        function openMobileMenu() {
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        mobileMenuButton.addEventListener('click', openMobileMenu);
-        closeMenuButton.addEventListener('click', closeMobileMenu);
-        overlay.addEventListener('click', closeMobileMenu);
-
-        // Disability Category Tabs
-        const tabs = document.querySelectorAll('.disability-tab');
-        const sections = document.querySelectorAll('.disability-section');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Update active tab
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show selected section
-                const category = tab.dataset.category;
-                sections.forEach(section => {
-                    section.style.display = section.dataset.category === category ? 'block' : 'none';
-                });
-                
-                // Special case for 'all' category
-                if (category === 'all') {
-                    sections.forEach(section => {
-                        section.style.display = 'block';
-                    });
+    
+            // Toggle theme on button click
+            function toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
                 }
+            }
+    
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+    
+            // ===== MOBILE MENU FUNCTIONALITY =====
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('overlay');
+    
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+    
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+    
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+            closeMenuButton.addEventListener('click', closeMobileMenu);
+            overlay.addEventListener('click', closeMobileMenu);
+    
+            // ===== DISABILITY CATEGORY TABS =====
+            const tabs = document.querySelectorAll('.disability-tab');
+            const sections = document.querySelectorAll('.disability-section');
+    
+            // Initialize all sections as hidden first
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                section.style.display = 'none';
+            });
+    
+            // Then show the deaf section with animation after a small delay
+            setTimeout(() => {
+                const deafSection = document.querySelector('.disability-section[data-category="deaf"]');
+                if (deafSection) {
+                    deafSection.style.display = 'block';
+                    // Force reflow before removing hidden class
+                    void deafSection.offsetHeight;
+                    deafSection.classList.remove('hidden');
+                }
+            }, 100);
+    
+            // Tab click functionality with smooth transitions
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    const category = tab.dataset.category;
+                    const tabsArray = Array.from(tabs);
+                    const currentIndex = tabsArray.findIndex(t => t.classList.contains('active'));
+                    
+                    // Animate sections
+                    sections.forEach((section, index) => {
+                        if (category === 'all' || section.dataset.category === category) {
+                            // Show section with animation
+                            section.style.display = 'block';
+                            // Force reflow to ensure transition works
+                            void section.offsetHeight;
+                            section.classList.remove('hidden');
+                            
+                            // Add direction-specific animation
+                            if (index < currentIndex) {
+                                section.style.transform = 'translateX(-20px)';
+                            } else if (index > currentIndex) {
+                                section.style.transform = 'translateX(20px)';
+                            }
+                            
+                            setTimeout(() => {
+                                section.style.transform = 'translateX(0)';
+                            }, 10);
+                        } else {
+                            // Hide section with animation
+                            if (index < currentIndex) {
+                                section.style.transform = 'translateX(-100%)';
+                            } else {
+                                section.style.transform = 'translateX(100%)';
+                            }
+                            section.classList.add('hidden');
+                            
+                            setTimeout(() => {
+                                if (section.classList.contains('hidden')) {
+                                    section.style.display = 'none';
+                                    section.style.transform = ''; // Reset transform
+                                }
+                            }, 600); // Match this with CSS transition duration
+                        }
+                    });
+    
+                    // Smooth scroll to top
+                    window.scrollTo({
+                        top: document.querySelector('.disability-tabs').offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
     </script>
