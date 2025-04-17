@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Coaching | Udyog Saarthi</title>
+    <meta name="description" content="Accessible job coaching services with training modules, mock interviews, resume building, and more for persons with disabilities">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .hover-gradient:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card .front {
+            backface-visibility: hidden;
+            transition: all 0.6s ease;
+        }
+        .feature-card .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            transition: all 0.6s ease;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .feature-card.flipped .front {
+            transform: rotateY(180deg);
+        }
+        .feature-card.flipped .back {
+            transform: rotateY(0deg);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion.active .accordion-content {
+            max-height: 500px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 20;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            z-index: 30;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 pt-20">
+    <!-- INSERT YOUR HEADER HERE -->
+    <!-- 
+        <header>...</header>
+    -->
+    <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class=" rounded-full p-2 ">
+                    <div>
+                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                    </div>
+                </div>
+                <span class="text-2xl font-bold">Udyog Saarthi</span>
+            </a>
+
+            <!-- Hamburger Menu Button for mobile -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+                <ul class="flex items-center justify-center space-x-2">
+                    <li>
+                        <a href="index.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="C.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Job Coaching</span>
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="#"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+
+                    <!-- Theme Toggle Button -->
+                    <li>
+                        <button id="theme-toggle"
+                            class="p-2 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" data-slot="icon" class="h-5 w-5">
+                                <path
+                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                </path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="overlay" class="overlay"></div>
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="p-4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-xl font-bold">Menu</span>
+                    <button id="close-menu" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-home w-6 text-center"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jobcoaching.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-20 transition-all">
+                            <i class="fas fa-user-graduate w-6 text-center"></i>
+                            <span>Job Coaching</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="training.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-laptop-code w-6 text-center"></i>
+                            <span>Training</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-briefcase w-6 text-center"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-phone-alt w-6 text-center"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li class="pt-2 border-t border-blue-500 dark:border-gray-700 mt-2">
+                        <div class="flex items-center justify-between">
+                            <span>Dark Mode</span>
+                            <button id="mobile-theme-toggle"
+                                class="p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    aria-hidden="true" data-slot="icon" class="h-5 w-5">
+                                    <path
+                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-blue-800 dark:text-blue-300">Job Coaching Services</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Empowering your career journey with accessible training modules, personalized guidance, and inclusive resources designed for all abilities.
+            </p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#features" class="px-6 py-3 gradient-bg text-white rounded-full hover:opacity-90 transition duration-300 shadow-lg">
+                    Explore Features
+                </a>
+                <a href="#contact" class="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-300 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition duration-300">
+                    Get Started
+                </a>
+            </div>
+        </section>
+
+       <section id="features" class="mb-20">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-800 dark:text-blue-300">Comprehensive Career Support</h2>
+    
+    <div class="max-w-5xl mx-auto">
+        <div class="flex flex-wrap justify-center mb-8 gap-2">
+            <button class="tab-btn active px-4 py-2 rounded-full gradient-bg text-white" data-tab="training">
+                Training courses
+            </button>
+            <button class="tab-btn px-4 py-2 rounded-full hover-gradient hover:text-white border border-blue-600 text-blue-600 dark:text-blue-300 dark:border-blue-300" data-tab="reservation">
+                Reservation Benefits
+            </button>
+            <button class="tab-btn px-4 py-2 rounded-full hover-gradient hover:text-white border border-blue-600 text-blue-600 dark:text-blue-300 dark:border-blue-300" data-tab="government">
+                Government Schemes
+            </button>
+            <button class="tab-btn px-4 py-2 rounded-full hover-gradient hover:text-white border border-blue-600 text-blue-600 dark:text-blue-300 dark:border-blue-300" data-tab="rights">
+                Your Rights
+            </button>
+        </div>
+
+        <!-- Training Modules Tab -->
+        <div class="tab-content active" id="training-tab">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Training Modules" class="rounded-lg w-full h-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Accessible Training Modules</h3>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Soft Skills, Digital Literacy, Resume Writing, Interview Preparation, etc.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Available in text, audio, and video formats for different learning preferences</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Screen reader support and adjustable font sizes for accessibility</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Interactive exercises and quizzes to reinforce learning</span>
+                            </li>
+                        </ul>
+                        <a href="final.html" class="inline-block mt-6 px-6 py-2 gradient-bg text-white rounded-full hover:opacity-90 transition duration-300 shadow-lg">
+                            Explore Modules
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservation Benefits Tab -->
+        <div class="tab-content" id="reservation-tab">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Reservation Benefits" class="rounded-lg w-full h-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Understanding 4% Reservation Benefits</h3>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Detailed explanation of horizontal reservation system in government jobs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>List of reserved posts across different government departments</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Special provisions in examinations and selection processes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>How to claim reservation benefits during application process</span>
+                            </li>
+                        </ul>
+                        <a href="https://socialjustice.gov.in/" class="inline-block mt-6 px-6 py-2 gradient-bg text-white rounded-full hover:opacity-90 transition duration-300 shadow-lg">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Government Schemes Tab -->
+        <div class="tab-content" id="government-tab">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Government Schemes" class="rounded-lg w-full h-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Government Schemes & Support</h3>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Accessible coaching schemes for competitive exams</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Special employment exchanges for PwD candidates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Scholarships and financial assistance programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>State-wise benefits and concessions</span>
+                            </li>
+                        </ul>
+                        <a href="https://divyangkalyan.maharashtra.gov.in/schemes-programmes/?utm_source=chatgpt.com" class="inline-block mt-6 px-6 py-2 gradient-bg text-white rounded-full hover:opacity-90 transition duration-300 shadow-lg">
+                            Explore Schemes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Your Rights Tab -->
+        <div class="tab-content" id="rights-tab">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Your Rights" class="rounded-lg w-full h-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Know Your Rights & Protections</h3>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Rights under Rights of Persons with Disabilities Act, 2016</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>How to address discrimination in recruitment</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Workplace accommodations you can request</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Grievance redressal mechanisms</span>
+                            </li>
+                        </ul>
+                        <a href="https://nhrc.nic.in/sites/default/files/DisabilityRights.pdf?utm_source=chatgpt.com" class="inline-block mt-6 px-6 py-2 gradient-bg text-white rounded-full hover:opacity-90 transition duration-300 shadow-lg">
+                            Understand Your Rights
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Flip Cards Section -->
+<section class="mb-20">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-800 dark:text-blue-300">Key Advantages</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="feature-card relative h-64 cursor-pointer" onclick="this.classList.toggle('flipped')">
+            <div class="front h-full bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col justify-center items-center">
+                <div class="gradient-bg p-4 rounded-full mb-4 text-white">
+                    <i class="fas fa-percentage text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-2">Reservation Quota</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-center">Exclusive access to reserved positions</p>
+                <p class="text-blue-500 mt-4 text-sm">Tap to learn more →</p>
+            </div>
+            <div class="back h-full">
+                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>4% reservation in government jobs</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Separate merit list for PwD candidates</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Age relaxation benefits</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Application fee concessions</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card relative h-64 cursor-pointer" onclick="this.classList.toggle('flipped')">
+            <div class="front h-full bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col justify-center items-center">
+                <div class="gradient-bg p-4 rounded-full mb-4 text-white">
+                    <i class="fas fa-universal-access text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-2">Accessibility First</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-center">Designed with all abilities in mind</p>
+                <p class="text-blue-500 mt-4 text-sm">Tap to learn more →</p>
+            </div>
+            <div class="back h-full">
+                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Screen reader compatible</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Keyboard navigable</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Adjustable text sizes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Multiple content formats</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card relative h-64 cursor-pointer" onclick="this.classList.toggle('flipped')">
+            <div class="front h-full bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col justify-center items-center">
+                <div class="gradient-bg p-4 rounded-full mb-4 text-white">
+                    <i class="fas fa-hands-helping text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-2">Community Support</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-center">Connect with peers and mentors</p>
+                <p class="text-blue-500 mt-4 text-sm">Tap to learn more →</p>
+            </div>
+            <div class="back h-full">
+                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Peer discussion forums</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Success story sharing</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Group coaching sessions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                        <span>Networking opportunities</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="mb-20">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-800 dark:text-blue-300">Frequently Asked Questions</h2>
+    
+    <div class="max-w-3xl mx-auto">
+        <!-- FAQ Item 1 -->
+        <div class="accordion mb-4 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <button class="accordion-btn w-full text-left p-6 flex justify-between items-center">
+                <span class="font-bold text-lg">Who can benefit from these job coaching services?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content px-6">
+                <div class="pb-6 text-gray-600 dark:text-gray-300">
+                    Our services are designed for all job seekers, with special accommodations for persons with disabilities. Whether you're entering the workforce for the first time, changing careers, or returning after a break, our coaching can help. We have specific resources for people with visual, hearing, mobility, and cognitive disabilities.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="accordion mb-4 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <button class="accordion-btn w-full text-left p-6 flex justify-between items-center">
+                <span class="font-bold text-lg">How much does the job coaching program cost?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content px-6">
+                <div class="pb-6 text-gray-600 dark:text-gray-300">
+                    Our basic job coaching services are completely free. We offer premium one-on-one coaching sessions at subsidized rates for those who need more personalized attention. Scholarships are available for those who cannot afford the fees - no one is turned away due to financial constraints.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="accordion mb-4 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <button class="accordion-btn w-full text-left p-6 flex justify-between items-center">
+                <span class="font-bold text-lg">What kind of jobs can you help me prepare for?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content px-6">
+                <div class="pb-6 text-gray-600 dark:text-gray-300">
+                    We prepare candidates for a wide range of jobs across sectors including IT, retail, hospitality, banking, healthcare, and government services. Our training modules cover both general employability skills and sector-specific knowledge. We also work with employers to create inclusive opportunities matching your skills.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="accordion mb-4 bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <button class="accordion-btn w-full text-left p-6 flex justify-between items-center">
+                <span class="font-bold text-lg">How do I access the materials if I have a visual impairment?</span>
+                <i class="fas fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <div class="accordion-content px-6">
+                <div class="pb-6 text-gray-600 dark:text-gray-300">
+                    All our materials are designed with accessibility in mind. Text content is screen-reader friendly, videos include audio descriptions, and we provide alternative text for all images. You can also request materials in Braille or access our audio-only versions of all training modules.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+       
+
+        <!-- Call to Action -->
+        <section id="contact" class="gradient-bg text-white rounded-2xl p-8 md:p-12 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Career?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands who've found success through our personalized job coaching programs.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3 rounded-full transition duration-300 shadow-lg">
+                    Get Started Now
+                </a>
+                <a href="tel:+919876543210" class="inline-block border-2 border-white text-white hover:bg-white hover:bg-opacity-20 font-semibold px-8 py-3 rounded-full transition duration-300">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Us
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- INSERT YOUR FOOTER HERE -->
+    <!-- 
+        <footer>...</footer>
+    -->
+    <footer class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-white rounded-full p-2 shadow-lg">
+                            <i class="fas fa-hands-helping text-blue-600 text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Udyog Saarthi</span>
+                    </div>
+                    <p class="text-blue-100 mb-4">Empowering careers for everyone through personalized guidance and
+                        equal
+                        opportunities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">About Us</a></li>
+                        <li><a href="jobcoaching.html" class="text-blue-100 hover:text-white transition">Job Coaching</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Jobs</a></li>
+                        <li><a href="contact.html" class="text-blue-100 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Training Materials</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Career Guidance</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Skill Assessment</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Reservation Policy</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>123 Main Street, New Delhi, India</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@udyogsaarthi.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-500 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2025 Udyog Saarthi. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-blue-100 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-blue-100 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-blue-100 hover:text-white transition">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="dark.js"></script>
+    <script src="smallScreen.js"></script>
+    <script src="counter.js"></script>
+    
+    <script>
+        // Mobile menu toggle functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+                document.getElementById('overlay').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Theme toggle for mobile
+        document.getElementById('mobile-theme-toggle').addEventListener('click', function() {
+            document.getElementById('theme-toggle').click();
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active', 'gradient-bg', 'text-white'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'gradient-bg', 'text-white');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+
+        // Accordion functionality
+        const accordions = document.querySelectorAll('.accordion');
+        
+        accordions.forEach(accordion => {
+            const btn = accordion.querySelector('.accordion-btn');
+            
+            btn.addEventListener('click', () => {
+                // Toggle active class on accordion
+                accordion.classList.toggle('active');
+                
+                // Rotate chevron icon
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Flip cards on mobile touch
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach(card => {
+            card.addEventListener('touchstart', function(e) {
+                if (!this.classList.contains('flipped')) {
+                    this.classList.add('flipped');
+                    e.preventDefault(); // Prevent triggering click event as well
+                }
+            }, {passive: false});
+        });
+    </script>
+</body>
+</html>

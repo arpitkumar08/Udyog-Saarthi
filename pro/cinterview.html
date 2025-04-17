@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Same head content as jobcoaching.html --><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible job coaching services with training modules, mock interviews, resume building, and more for persons with disabilities">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card .front {
+            backface-visibility: hidden;
+            transition: all 0.6s ease;
+        }
+        .feature-card .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            transition: all 0.6s ease;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .feature-card.flipped .front {
+            transform: rotateY(180deg);
+        }
+        .feature-card.flipped .back {
+            transform: rotateY(0deg);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion.active .accordion-content {
+            max-height: 500px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 20;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            z-index: 30;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .overlay.active {
+            display: block;
+        }
+    </style>
+
+    <title>Training Modules | Udyog Saarthi</title>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 pt-20">
+    <!-- Same header as jobcoaching.html --> <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class=" rounded-full p-2 ">
+                    <div>
+                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                    </div>
+                </div>
+                <span class="text-2xl font-bold">Udyog Saarthi</span>
+            </a>
+
+            <!-- Hamburger Menu Button for mobile -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+                <ul class="flex items-center justify-center space-x-2">
+                    <li>
+                        <a href="index.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jobcoaching.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Job Coaching</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="training.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Training</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+
+                    <!-- Theme Toggle Button -->
+                    <li>
+                        <button id="theme-toggle"
+                            class="p-2 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-full flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" data-slot="icon" class="h-5 w-5">
+                                <path
+                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                </path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="overlay" class="overlay"></div>
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="p-4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-xl font-bold">Menu</span>
+                    <button id="close-menu" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-home w-6 text-center"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jobcoaching.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-20 transition-all">
+                            <i class="fas fa-user-graduate w-6 text-center"></i>
+                            <span>Job Coaching</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="training.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-laptop-code w-6 text-center"></i>
+                            <span>Training</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-briefcase w-6 text-center"></i>
+                            <span>Jobs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                            <i class="fas fa-phone-alt w-6 text-center"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li class="pt-2 border-t border-blue-500 dark:border-gray-700 mt-2">
+                        <div class="flex items-center justify-between">
+                            <span>Dark Mode</span>
+                            <button id="mobile-theme-toggle"
+                                class="p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    aria-hidden="true" data-slot="icon" class="h-5 w-5">
+                                    <path
+                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <!-- Interview Prep Dashboard -->
+        <section class="interview-dashboard">
+            <div class="prep-header">
+                <h2>Interview Preparation Toolkit</h2>
+                <div class="search-filter">
+                    <input type="text" placeholder="Search questions..." id="searchQuestions">
+                    <select id="questionFilter">
+                        <option value="all">All Categories</option>
+                        <option value="general">General</option>
+                        <option value="behavioral">Behavioral</option>
+                        <option value="technical">Technical</option>
+                        <option value="accessibility">Accessibility</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="prep-container">
+                <!-- Questions Bank -->
+                <div class="questions-bank">
+                    <div class="question-category active" data-category="general">
+                        <h3><i class="fas fa-comment-dots"></i> General Questions</h3>
+                        <div class="question-list">
+                            <div class="question-card" data-question-id="1">
+                                <div class="question">Tell me about yourself</div>
+                                <div class="answer-guide">
+                                    <p><strong>How to answer:</strong> Focus on your professional journey, key skills, and achievements relevant to the position. Keep it concise (1-2 minutes).</p>
+                                    <div class="answer-tips">
+                                        <span class="tip-tag"><i class="fas fa-lightbulb"></i> Tip: Structure as Present-Past-Future</span>
+                                    </div>
+                                </div>
+                                <button class="practice-btn">Practice Answer</button>
+                            </div>
+                            <!-- More general questions -->
+                        </div>
+                    </div>
+    
+                    <div class="question-category" data-category="behavioral">
+                        <h3><i class="fas fa-people-arrows"></i> Behavioral Questions</h3>
+                        <div class="question-list">
+                            <div class="question-card" data-question-id="2">
+                                <div class="question">Describe a time you faced a challenge</div>
+                                <div class="answer-guide">
+                                    <p><strong>Use the STAR method:</strong></p>
+                                    <ul>
+                                        <li><strong>S</strong>ituation: Set the context</li>
+                                        <li><strong>T</strong>ask: Your responsibility</li>
+                                        <li><strong>A</strong>ction: Steps you took</li>
+                                        <li><strong>R</strong>esult: Positive outcome</li>
+                                    </ul>
+                                </div>
+                                <button class="practice-btn">Practice Answer</button>
+                            </div>
+                            <!-- More behavioral questions -->
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Practice Panel -->
+                <div class="practice-panel">
+                    <div class="practice-header">
+                        <h3>Practice Session</h3>
+                        <div class="timer-display">00:00</div>
+                    </div>
+                    <div class="current-question">Select a question to practice</div>
+                    <div class="recording-controls">
+                        <button id="startRecording"><i class="fas fa-microphone"></i> Record Answer</button>
+                        <button id="playRecording" disabled><i class="fas fa-play"></i> Playback</button>
+                    </div>
+                    <div class="feedback-section">
+                        <h4>Self-Evaluation Checklist</h4>
+                        <ul class="feedback-checklist">
+                            <li><input type="checkbox"> Clear and concise</li>
+                            <li><input type="checkbox"> Relevant examples</li>
+                            <li><input type="checkbox"> Good structure</li>
+                            <li><input type="checkbox"> Confident tone</li>
+                        </ul>
+                        <button class="save-btn">Save Practice</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <h2><i class="fas fa-external-link-alt"></i> Helpful Resources</h2>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3>Interview Guides</h3>
+                    <ul>
+                        <li><a href="https://www.themuse.com/advice/interview-questions-and-answers" target="_blank">Common Questions & Answers</a></li>
+                        <li><a href="https://www.indeed.com/career-advice/interviewing" target="_blank">Indeed Interview Guide</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h3>Accessibility Resources</h3>
+                    <ul>
+                        <li><a href="https://www.askjan.org/" target="_blank">Job Accommodation Network</a></li>
+                        <li><a href="https://www.dol.gov/agencies/odep" target="_blank">Disability Employment Policy</a></li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h3>Practice Platforms</h3>
+                    <ul>
+                        <li><a href="https://www.pramp.com/" target="_blank">Free Mock Interviews</a></li>
+                        <li><a href="https://www.youtube.com/playlist?list=PLD8AMy73ZVxW9A63hUO6GqyP6OqQkL64O" target="_blank">Mock Interview Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <style>
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        /* Interview Dashboard */
+        .interview-dashboard {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+    
+        .prep-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+    
+        .prep-header h2 {
+            color: #2b2d42;
+            font-size: 1.8rem;
+        }
+    
+        .search-filter {
+            display: flex;
+            gap: 15px;
+        }
+    
+        .search-filter input, 
+        .search-filter select {
+            padding: 10px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+    
+        /* Prep Container */
+        .prep-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+    
+        /* Questions Bank */
+        .questions-bank {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+    
+        .question-category {
+            margin-bottom: 25px;
+            display: none;
+        }
+    
+        .question-category.active {
+            display: block;
+        }
+    
+        .question-category h3 {
+            color: #4361ee;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #4361ee;
+            transition: all 0.3s ease;
+        }
+    
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
+        }
+    
+        .question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    
+        .answer-guide {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #e2e8f0;
+        }
+    
+        .question-card.active .answer-guide {
+            display: block;
+        }
+    
+        .answer-tips {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    
+        .tip-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+    
+        .practice-btn {
+            background: #4361ee;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+    
+        .practice-btn:hover {
+            background: #3a56d4;
+        }
+    
+        /* Practice Panel */
+        .practice-panel {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .practice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    
+        .practice-header h3 {
+            color: #2b2d42;
+        }
+    
+        .timer-display {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    
+        .current-question {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-style: italic;
+            color: #6c757d;
+        }
+    
+        .recording-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .recording-controls button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+    
+        #startRecording {
+            background: #4361ee;
+            color: white;
+        }
+    
+        #startRecording:hover {
+            background: #3a56d4;
+        }
+    
+        #startRecording.recording {
+            background: #ef233c;
+            animation: pulse 1.5s infinite;
+        }
+    
+        #playRecording {
+            background: #48cae4;
+            color: white;
+        }
+    
+        #playRecording:hover {
+            background: #00b4d8;
+        }
+    
+        .feedback-section {
+            margin-top: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    
+        .feedback-checklist {
+            list-style: none;
+            margin: 15px 0;
+        }
+    
+        .feedback-checklist li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    
+        .save-btn {
+            width: 100%;
+            padding: 10px;
+            background: #4cc9f0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    
+        .save-btn:hover {
+            background: #00b4d8;
+        }
+    
+        /* Resources Section */
+        .resources-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 25px;
+        }
+    
+        .resources-section h2 {
+            color: #2b2d42;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .resource-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    
+        .resource-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+    
+        .resource-card h3 {
+            color: #4361ee;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+    
+        .resource-card ul {
+            list-style: none;
+        }
+    
+        .resource-card li {
+            margin-bottom: 10px;
+        }
+    
+        .resource-card a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    
+        .resource-card a:hover {
+            color: #3a56d4;
+            text-decoration: underline;
+        }
+    
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    
+        /* Responsive */
+        @media (max-width: 768px) {
+            .prep-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .prep-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .search-filter {
+                width: 100%;
+            }
+        }
+    </style>
+    
+    <script>
+        // DOM Elements
+        const questionFilter = document.getElementById('questionFilter');
+        const searchInput = document.getElementById('searchQuestions');
+        const questionCategories = document.querySelectorAll('.question-category');
+        const questionCards = document.querySelectorAll('.question-card');
+        const practicePanel = document.querySelector('.practice-panel');
+        const currentQuestionDisplay = document.querySelector('.current-question');
+        const startRecordingBtn = document.getElementById('startRecording');
+        const playRecordingBtn = document.getElementById('playRecording');
+        const timerDisplay = document.querySelector('.timer-display');
+        
+        // Filter questions by category
+        questionFilter.addEventListener('change', function() {
+            const selectedCategory = this.value;
+            
+            questionCategories.forEach(category => {
+                if (selectedCategory === 'all' || category.dataset.category === selectedCategory) {
+                    category.classList.add('active');
+                } else {
+                    category.classList.remove('active');
+                }
+            });
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            questionCards.forEach(card => {
+                const questionText = card.querySelector('.question').textContent.toLowerCase();
+                if (questionText.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Toggle answer guides
+        questionCards.forEach(card => {
+            const question = card.querySelector('.question');
+            
+            question.addEventListener('click', function() {
+                card.classList.toggle('active');
+            });
+        });
+        
+        // Practice question functionality
+        questionCards.forEach(card => {
+            const practiceBtn = card.querySelector('.practice-btn');
+            
+            practiceBtn.addEventListener('click', function() {
+                const questionText = card.querySelector('.question').textContent;
+                currentQuestionDisplay.textContent = questionText;
+                
+                // Scroll to practice panel on mobile
+                if (window.innerWidth < 768) {
+                    practicePanel.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Recording functionality (simulated)
+        let timerInterval;
+        let seconds = 0;
+        
+        startRecordingBtn.addEventListener('click', function() {
+            if (this.classList.contains('recording')) {
+                // Stop recording
+                this.classList.remove('recording');
+                this.innerHTML = '<i class="fas fa-microphone"></i> Record Answer';
+                clearInterval(timerInterval);
+                playRecordingBtn.disabled = false;
+            } else {
+                // Start recording
+                this.classList.add('recording');
+                this.innerHTML = '<i class="fas fa-stop"></i> Stop Recording';
+                seconds = 0;
+                updateTimerDisplay();
+                timerInterval = setInterval(() => {
+                    seconds++;
+                    updateTimerDisplay();
+                }, 1000);
+                playRecordingBtn.disabled = true;
+            }
+        });
+        
+        playRecordingBtn.addEventListener('click', function() {
+            alert("In a real implementation, this would play back your recorded answer");
+        });
+        
+        function updateTimerDisplay() {
+            const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const secs = (seconds % 60).toString().padStart(2, '0');
+            timerDisplay.textContent = `${mins}:${secs}`;
+        }
+    </script>
+    
+
+    <!-- Same footer as jobcoaching.html -->
+    <footer class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-white rounded-full p-2 shadow-lg">
+                            <i class="fas fa-hands-helping text-blue-600 text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Udyog Saarthi</span>
+                    </div>
+                    <p class="text-blue-100 mb-4">Empowering careers for everyone through personalized guidance and
+                        equal
+                        opportunities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-200 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">About Us</a></li>
+                        <li><a href="jobcoaching.html" class="text-blue-100 hover:text-white transition">Job Coaching</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Jobs</a></li>
+                        <li><a href="contact.html" class="text-blue-100 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Training Materials</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Career Guidance</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Skill Assessment</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">Reservation Policy</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>123 Main Street, New Delhi, India</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@udyogsaarthi.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-500 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2025 Udyog Saarthi. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-blue-100 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-blue-100 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-blue-100 hover:text-white transition">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="dark.js"></script>
+    <script src="smallScreen.js"></script>
+    <script src="counter.js"></script>
+
+</body>
+</html>
