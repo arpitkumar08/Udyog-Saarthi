@@ -27,11 +27,21 @@
 
         .card-hover {
             transition: all 0.3s ease;
+            transform: translateZ(10px);
+            perspective: 1000px;
         }
 
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateZ(20px) rotateX(5deg) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark .card-hover {
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .card-hover:hover {
+            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2), 0 6px 12px rgba(255, 255, 255, 0.1);
         }
 
         .pulse-animation {
@@ -143,6 +153,63 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+            .logo-3d img,
+            .footer-logo-icon,
+            .card-hover {
+                animation: none;
+                transform: none;
+            }
+        }
+
+        /* 3D Logo Effect */
+        .logo-3d {
+            perspective: 1000px;
+            display: inline-block;
+        }
+
+        .logo-3d img {
+            transform: rotateX(10deg) rotateY(10deg) translateZ(20px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, #3b82f6, #8b5cf6) 1;
+        }
+
+        .logo-3d img:hover {
+            transform: rotateX(0deg) rotateY(0deg) translateZ(30px) scale(1.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark .logo-3d img {
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1), 0 4px 8px rgba(255, 255, 255, 0.05);
+            border-image: linear-gradient(135deg, #60a5fa, #a78bfa) 1;
+        }
+
+        .dark .logo-3d img:hover {
+            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2), 0 6px 12px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer Icon 3D Effect */
+        .footer-logo-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateZ(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-logo-icon:hover {
+            transform: translateZ(20px) scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark .footer-logo-icon {
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .footer-logo-icon:hover {
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -153,10 +220,8 @@
     <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
         <div class="container mx-auto flex justify-between items-center px-6">
             <a href="index.html" class="flex items-center space-x-2">
-                <div class="rounded-full p-2">
-                    <div>
-                        <img src="assets/logo.webp" alt="Udyog Saarthi Logo" width="50px" height="50px" class="rounded-lg">
-                    </div>
+                <div class="logo-3d rounded-full p-2">
+                    <img src="assets/logo.webp" alt="Udyog Saarthi Logo" width="50px" height="50px" class="rounded-lg">
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
             </a>
@@ -268,7 +333,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                     aria-hidden="true" data-slot="icon" class="h-5 w-5">
                                     <path
-                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 1 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 1 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 1 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
                                     </path>
                                 </svg>
                             </button>
@@ -280,7 +345,7 @@
     </header>
 
     <!-- HERO SECTION START -->
-    <section class="pt-32 pb-16 overflow-hidden w-full mb-3 ">
+    <section class="pt-32 pb-16 overflow-hidden w-full mb-3">
         <div class="container mx-auto px-6 text-center w-full mt-12">
             <div class="flex flex-col items-center justify-center text-center w-full">
                 <div class="w-full flex flex-col items-center mt-9">
@@ -618,7 +683,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="bg-white rounded-full p-2 shadow-lg">
+                        <div class="footer-logo-icon bg-white rounded-full p-2 shadow-lg">
                             <i class="fas fa-hands-helping text-blue-600 text-xl"></i>
                         </div>
                         <span class="text-xl font-bold">Udyog Saarthi</span>
@@ -626,7 +691,7 @@
                     <p class="text-blue-100 mb-4">Empowering careers for everyone through personalized guidance and
                         equal opportunities.</p>
                     <div class="flex space-x-4">
-                        <a href="c" class="text-white hover:text-blue-200 transition">
+                        <a href="#" class="text-white hover:text-blue-200 transition">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="https://x.com/?lang=en" class="text-white hover:text-blue-200 transition">
@@ -710,7 +775,7 @@
                     }
                 });
             }, {
-                threshold: 0.5 // Trigger when 10% of the section is visible
+                threshold: 0.5 // Trigger when 50% of the section is visible
             });
 
             sections.forEach(section => {
