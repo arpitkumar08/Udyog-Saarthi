@@ -33,20 +33,36 @@
         }
         
         .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: #1f2937;
+            transition: right 0.3s ease-in-out;
+            z-index: 50;
+            overflow-y: auto;
+           
         }
-        
-        .mobile-menu.open {
-            transform: translateX(0);
+
+        .mobile-menu.active {
+            right: 0;
         }
-        
+
         .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
         }
-        
+
         .overlay.active {
             opacity: 1;
             visibility: visible;
@@ -89,12 +105,13 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
     <!-- Header -->
+
     <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
         <div class="container mx-auto flex justify-between items-center px-6">
             <a href="index.html" class="flex items-center space-x-2">
                 <div class="rounded-full p-2">
                     <div>
-                        <img src="assets/logo.webp" alt="Udyog Saarthi Logo" width="50px" height="50px" class="rounded-lg">
+                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
                     </div>
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
@@ -102,8 +119,10 @@
 
             <!-- Hamburger Menu Button for mobile -->
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
 
@@ -118,14 +137,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="C.html"
+                        <a href="jobCoaching.html"
                             class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-user-graduate"></i>
                             <span>Job Coaching</span>
                         </a>
                     </li>
+                    
                     <li>
-                        <a href="#"
+                        <a href="job.html"
                             class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-briefcase"></i>
                             <span>Jobs</span>
@@ -142,11 +162,11 @@
                     <!-- Theme Toggle Button -->
                     <li>
                         <button id="theme-toggle"
-                            class="p-2 bg-white/10 text-white rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                            class="p-2 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-full flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 aria-hidden="true" data-slot="icon" class="h-5 w-5">
                                 <path
-                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 1 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
                                 </path>
                             </svg>
                         </button>
@@ -156,14 +176,16 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="overlay" class="overlay fixed inset-0 bg-black bg-opacity-50 z-20"></div>
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-blue-800 z-30 shadow-xl">
+        <div id="overlay" class="overlay"></div>
+        <div id="mobile-menu" class="mobile-menu">
             <div class="p-4">
                 <div class="flex justify-between items-center mb-6">
                     <span class="text-xl font-bold">Menu</span>
                     <button id="close-menu" class="text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
@@ -176,14 +198,22 @@
                         </a>
                     </li>
                     <li>
-                        <a href="C.html"
+                        <a href="courses.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-book w-6 text-center"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jobCoaching.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
                             <i class="fas fa-user-graduate w-6 text-center"></i>
                             <span>Job Coaching</span>
                         </a>
                     </li>
+                    
                     <li>
-                        <a href="#"
+                        <a href="job.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
                             <i class="fas fa-briefcase w-6 text-center"></i>
                             <span>Jobs</span>
@@ -200,11 +230,11 @@
                         <div class="flex items-center justify-between">
                             <span>Dark Mode</span>
                             <button id="mobile-theme-toggle"
-                                class="p-2 bg-white/10 text-white rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                class="p-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-full flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                     aria-hidden="true" data-slot="icon" class="h-5 w-5">
                                     <path
-                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
                                     </path>
                                 </svg>
                             </button>
@@ -226,34 +256,7 @@
             </div>
         </section>
 
-        <!-- Course Categories -->
-        <!-- <section class="mb-12">
-            <div class="container mx-auto">
-                <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-white">Course Categories</h2>
-                <div class="flex flex-wrap justify-center gap-3 mb-8">
-                    <button class="category-btn px-4 py-2 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition-all" data-category="all">All Courses</button>
-                    <button class="category-btn px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all border border-white/20" data-category="soft-skills">Soft Skills</button>
-                    <button class="category-btn px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all border border-white/20" data-category="digital">Digital Literacy</button>
-                    <button class="category-btn px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all border border-white/20" data-category="interview">Interview Prep</button>
-                    <button class="category-btn px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all border border-white/20" data-category="government">Government Exams</button>
-                    <button class="category-btn px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all border border-white/20" data-category="technical">Technical Skills</button>
-                </div>
-            </div>
-        </section> -->
-        <!-- Course Categories -->
-    <!-- <section class="mb-12">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-100">Course Categories</h2>
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <button class="category-btn px-4 py-2 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition-all dark:bg-indigo-500 dark:hover:bg-indigo-600" data-category="all">All Courses</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-100 dark:border-indigo-700 dark:hover:bg-indigo-900/50" data-category="soft-skills">Soft Skills</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-violet-50 text-violet-700 hover:bg-violet-100 transition-all border border-violet-100 dark:bg-violet-900/30 dark:text-violet-100 dark:border-violet-700 dark:hover:bg-violet-900/50" data-category="digital">Digital Literacy</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-all border border-blue-100 dark:bg-blue-900/30 dark:text-blue-100 dark:border-blue-700 dark:hover:bg-blue-900/50" data-category="interview">Interview Prep</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-purple-50 text-purple-700 hover:bg-purple-100 transition-all border border-purple-100 dark:bg-purple-900/30 dark:text-purple-100 dark:border-purple-700 dark:hover:bg-purple-900/50" data-category="government">Government Exams</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-fuchsia-50 text-fuchsia-700 hover:bg-fuchsia-100 transition-all border border-fuchsia-100 dark:bg-fuchsia-900/30 dark:text-fuchsia-100 dark:border-fuchsia-700 dark:hover:bg-fuchsia-900/50" data-category="technical">Technical Skills</button>
-            </div>
-        </div>
-    </section> -->
+ 
 
     <!-- Course Categories -->
     <section class="mb-12">
@@ -570,102 +573,9 @@
 
     <!-- Additional Scripts -->
     <script>
-       // Course Filtering
-        // const categoryButtons = document.querySelectorAll('.category-btn');
-        // const courseCards = document.querySelectorAll('.course-card');
-        
-        // categoryButtons.forEach(button => {
-        //     button.addEventListener('click', () => {
-        //         // Remove active class from all buttons
-        //         categoryButtons.forEach(btn => {
-        //             btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg', 'hover:bg-indigo-700');
-        //             btn.classList.add('bg-white/10', 'text-white', 'backdrop-blur-sm', 'hover:bg-white/20', 'border', 'border-white/20');
-        //         });
-                
-        //         // Add active class to clicked button
-        //         button.classList.add('bg-indigo-600', 'text-white', 'shadow-lg', 'hover:bg-indigo-700');
-        //         button.classList.remove('bg-white/10', 'backdrop-blur-sm', 'hover:bg-white/20', 'border', 'border-white/20');
-                
-        //         const category = button.dataset.category;
-                
-        //         // Filter courses
-        //         courseCards.forEach(card => {
-        //             if (category === 'all' || card.dataset.category === category) {
-        //                 card.style.display = 'block';
-        //             } else {
-        //                 card.style.display = 'none';
-        //             }
-        //         });
-        //     });
-        // });
+      
 
-        // Course Filtering with Persistent State
-// document.addEventListener('DOMContentLoaded', function() {
-//     const categoryButtons = document.querySelectorAll('.category-btn');
-//     const courseCards = document.querySelectorAll('.course-card');
-    
-//     // Get saved category from localStorage or default to 'all'
-//     const currentCategory = localStorage.getItem('selectedCategory') || 'all';
-    
-//     function updateButtonStyles(activeCategory) {
-//         categoryButtons.forEach(btn => {
-//             const btnCategory = btn.dataset.category;
-//             const isActive = btnCategory === activeCategory;
-//             const color = btnCategory === 'soft-skills' ? 'indigo' :
-//                          btnCategory === 'digital' ? 'violet' :
-//                          btnCategory === 'interview' ? 'blue' :
-//                          btnCategory === 'government' ? 'purple' : 
-//                          btnCategory === 'technical' ? 'fuchsia' : 'indigo'; // 'all' uses indigo
-            
-//             // Reset all classes
-//             btn.className = `category-btn px-4 py-2 rounded-full transition-all border`;
-            
-//             // Apply active or inactive styles
-//             if (isActive) {
-//                 btn.classList.add(
-//                     'bg-indigo-600', 'text-white', 'shadow-md',
-//                     'dark:bg-indigo-500', 'dark:text-white'
-//                 );
-//             } else {
-//                 btn.classList.add(
-//                     `bg-${color}-50`, `text-${color}-700`, `hover:bg-${color}-100`,
-//                     `border-${color}-200`, `dark:bg-gray-700`, `dark:text-gray-200`,
-//                     `dark:border-gray-600`, `dark:hover:bg-gray-600`
-//                 );
-//             }
-//         });
-//     }
-    
-//     // Set initial active button
-//     updateButtonStyles(currentCategory);
-    
-//     // Filter courses based on saved category
-//     courseCards.forEach(card => {
-//         card.style.display = (currentCategory === 'all' || card.dataset.category === currentCategory) 
-//             ? 'block' 
-//             : 'none';
-//     });
-    
-//     // Handle button clicks
-//     categoryButtons.forEach(button => {
-//         button.addEventListener('click', () => {
-//             const category = button.dataset.category;
-            
-//             // Save to localStorage
-//             localStorage.setItem('selectedCategory', category);
-            
-//             // Update button styles
-//             updateButtonStyles(category);
-            
-//             // Filter courses
-//             courseCards.forEach(card => {
-//                 card.style.display = (category === 'all' || card.dataset.category === category) 
-//                     ? 'block' 
-//                     : 'none';
-//             });
-//         });
-//     });
-// });
+
 
 
 // Course Filtering with Persistent State

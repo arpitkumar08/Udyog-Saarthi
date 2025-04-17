@@ -106,48 +106,51 @@
             max-height: 500px;
         }
 
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 20;
-        }
-
+      
         .mobile-menu {
-            display: none;
             position: fixed;
             top: 0;
-            right: 0;
+            right: -100%;
             width: 80%;
-            max-width: 320px;
-            height: 100%;
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-            z-index: 30;
+            max-width: 300px;
+            height: 100vh;
+            background-color: #1f2937;
+            transition: right 0.3s ease-in-out;
+            z-index: 50;
             overflow-y: auto;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-out;
+           
         }
 
         .mobile-menu.active {
-            transform: translateX(0);
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
         }
 
         .overlay.active {
-            display: block;
+            opacity: 1;
+            visibility: visible;
         }
+
     </style>
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 pt-20">
-
     <header class="gradient-bg text-white py-4 shadow-xl fixed w-full z-10 top-0">
         <div class="container mx-auto flex justify-between items-center px-6">
             <a href="index.html" class="flex items-center space-x-2">
-                <div class=" rounded-full p-2 ">
+                <div class="rounded-full p-2">
                     <div>
                         <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
                     </div>
@@ -169,19 +172,19 @@
                 <ul class="flex items-center justify-center space-x-2">
                     <li>
                         <a href="index.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
                         <a href="jobCoaching.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-user-graduate"></i>
                             <span>Job Coaching</span>
                         </a>
                     </li>
-
+                    
                     <li>
                         <a href="job.html"
                             class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
@@ -204,7 +207,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 aria-hidden="true" data-slot="icon" class="h-5 w-5">
                                 <path
-                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                    d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 1 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
                                 </path>
                             </svg>
                         </button>
@@ -214,7 +217,6 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-         <!-- Mobile Navigation Menu -->
         <div id="overlay" class="overlay"></div>
         <div id="mobile-menu" class="mobile-menu">
             <div class="p-4">
@@ -236,7 +238,13 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    
+                    <li>
+                        <a href="courses.html"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all">
+                            <i class="fas fa-book w-6 text-center"></i>
+                            <span>Courses</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="jobCoaching.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
@@ -244,6 +252,7 @@
                             <span>Job Coaching</span>
                         </a>
                     </li>
+ 
                     <li>
                         <a href="job.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
@@ -290,8 +299,12 @@
                     class="px-6 py-3 gradient-bg text-white rounded-full hover:opacity-90 transition duration-300 shadow-lg">
                     Explore Features
                 </a>
-                <a href="#contact"
+                <!-- <a href="#contact"
                     class="px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-300 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition duration-300">
+                    Get Started
+                </a> -->
+                <a href="#contact"
+                   id="gs" class="px-6  py-3 border-2 border-indigo-600 text-indigo-600 dark:text-white rounded-full hover:bg-indigo-300 hover:text-white  dark:hover:bg-indigo-500 transition duration-300">
                     Get Started
                 </a>
             </div>
@@ -301,7 +314,7 @@
             <h2 class="text-3xl font-bold mb-8 text-center text-blue-800 dark:text-blue-300">Comprehensive Career
                 Support</h2>
 
-            <div class="max-w-5xl mx-auto">
+            <!-- <div class="max-w-5xl mx-auto">
                 <div class="flex flex-wrap justify-center mb-8 gap-2">
                     <button class="tab-btn active px-4 py-2 rounded-full gradient-bg text-white" data-tab="training">
                         Training courses
@@ -321,8 +334,24 @@
                         data-tab="rights">
                         Your Rights
                     </button>
-                </div>
+                </div> -->
 
+                
+                <div class="flex flex-wrap justify-center mb-8 gap-2">
+                    <button class="tab-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70 active bg-indigo-500 text-white border-indigo-500 dark:bg-indigo-500 dark:border-indigo-500" data-tab="training">
+                        Training courses
+                    </button>
+                    <button class="tab-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-tab="reservation">
+                        Reservation Benefits
+                    </button>
+                    <button class="tab-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-tab="government">
+                        Government Schemes
+                    </button>
+                    <button class="tab-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-tab="rights">
+                        Your Rights
+                    </button>
+                </div>
+                
                 <!-- Training Modules Tab -->
                 <div class="tab-content active" id="training-tab">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
@@ -709,8 +738,7 @@
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="index.html" class="text-blue-100 hover:text-white transition">Home</a></li>
-                        <li><a href="jobCoaching.html" class="text-blue-100 hover:text-white transition">Job
-                                Coaching</a></li>
+                        <li><a href="jobCoaching.html" class="text-blue-100 hover:text-white transition">Job Coaching</a></li>
                         <li><a href="job.html" class="text-blue-100 hover:text-white transition">Jobs</a></li>
                         <li><a href="contact.html" class="text-blue-100 hover:text-white transition">Contact</a></li>
                     </ul>
@@ -763,84 +791,80 @@
     <script src="counter.js"></script>
 
     <script>
-        // Mobile menu toggle functionality
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            document.getElementById('mobile-menu').classList.add('active');
-            document.getElementById('overlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+      
 
-        document.getElementById('close-menu').addEventListener('click', function () {
-            document.getElementById('mobile-menu').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-            document.body.style.overflow = '';
+       
+    document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Get saved tab from localStorage or default to first tab
+    const currentTab = localStorage.getItem('selectedTab') || 'training';
+    
+    function updateTabStyles(activeTab) {
+        tabButtons.forEach(btn => {
+            const btnTab = btn.dataset.tab;
+            const isActive = btnTab === activeTab;
+            
+            if (isActive) {
+                // Set active state - indigo-500 for all active tabs
+                btn.classList.add(
+                    'bg-indigo-500', 'text-white', 'border-indigo-500',
+                    'dark:bg-indigo-500', 'dark:border-indigo-500'
+                );
+                btn.classList.remove(
+                    'bg-indigo-50', 'text-indigo-700', 'border-indigo-100',
+                    'bg-violet-50', 'text-violet-700', 'border-violet-100',
+                    'bg-blue-50', 'text-blue-700', 'border-blue-100',
+                    'bg-purple-50', 'text-purple-700', 'border-purple-100',
+                    'dark:bg-gray-700/50', 'dark:text-gray-100', 'dark:border-gray-600'
+                );
+            } else {
+                // Reset to inactive state
+                const color = btnTab === 'training' ? 'indigo' :
+                             btnTab === 'reservation' ? 'violet' :
+                             btnTab === 'government' ? 'blue' : 'purple';
+                
+                btn.classList.remove(
+                    'bg-indigo-500', 'text-white', 'border-indigo-500',
+                    'dark:bg-indigo-500', 'dark:border-indigo-500'
+                );
+                btn.classList.add(
+                    `bg-${color}-50`, `text-${color}-700`, `border-${color}-100`,
+                    'dark:bg-gray-700/50', 'dark:text-gray-100', 'dark:border-gray-600'
+                );
+                
+            }
         });
-
-        document.getElementById('overlay').addEventListener('click', function () {
-            document.getElementById('mobile-menu').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function () {
-                document.getElementById('mobile-menu').classList.remove('active');
-                document.getElementById('overlay').classList.remove('active');
-                document.body.style.overflow = '';
+    }
+    
+    // Set initial active tab
+    updateTabStyles(currentTab);
+    
+    // Show initial tab content
+    tabContents.forEach(content => {
+        content.style.display = (content.id === `${currentTab}-tab`) ? 'block' : 'none';
+    });
+    
+    // Handle tab clicks
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tab = button.dataset.tab;
+            
+            // Save to localStorage
+            localStorage.setItem('selectedTab', tab);
+            
+            // Update button styles
+            updateTabStyles(tab);
+            
+            // Show corresponding content
+            tabContents.forEach(content => {
+                content.style.display = (content.id === `${tab}-tab`) ? 'block' : 'none';
             });
         });
-
-        // Theme toggle for mobile
-        document.getElementById('mobile-theme-toggle').addEventListener('click', function () {
-            document.getElementById('theme-toggle').click();
-        });
-
-        // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active', 'gradient-bg', 'text-white'));
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Add active class to clicked button
-                button.classList.add('active', 'gradient-bg', 'text-white');
-
-                // Show corresponding content
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
-        });
-
-        // Accordion functionality
-        const accordions = document.querySelectorAll('.accordion');
-
-        accordions.forEach(accordion => {
-            const btn = accordion.querySelector('.accordion-btn');
-
-            btn.addEventListener('click', () => {
-                // Toggle active class on accordion
-                accordion.classList.toggle('active');
-
-                // Rotate chevron icon
-                const icon = btn.querySelector('i');
-                icon.classList.toggle('rotate-180');
-            });
-        });
-
-        // Flip cards on mobile touch
-        const featureCards = document.querySelectorAll('.feature-card');
-        featureCards.forEach(card => {
-            card.addEventListener('touchstart', function (e) {
-                if (!this.classList.contains('flipped')) {
-                    this.classList.add('flipped');
-                    e.preventDefault(); // Prevent triggering click event as well
-                }
-            }, { passive: false });
-        });
+    });
+});
+        
     </script>
 </body>
 

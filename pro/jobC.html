@@ -178,7 +178,7 @@
                     </li>
 
                     <li>
-                        <a href="#"
+                        <a href="job.html"
                             class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-briefcase"></i>
                             <span>Jobs</span>
@@ -231,21 +231,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="jobcoaching.html"
+                        <a href="jobCoaching.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-20 transition-all">
                             <i class="fas fa-user-graduate w-6 text-center"></i>
                             <span>Job Coaching</span>
                         </a>
                     </li>
+                  
                     <li>
-                        <a href="training.html"
-                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
-                            <i class="fas fa-laptop-code w-6 text-center"></i>
-                            <span>Training</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
+                        <a href="job.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
                             <i class="fas fa-briefcase w-6 text-center"></i>
                             <span>Jobs</span>
@@ -302,25 +296,17 @@
                 Support</h2>
 
             <div class="max-w-5xl mx-auto">
-                <div class="flex flex-wrap justify-center mb-8 gap-2 ">
-                    <button class="tab-btn active px-4 py-2 rounded-full bg-blue-600 text-white" data-tab="training">
+                <div class="flex flex-wrap justify-center mb-8 gap-2">
+                    <button class="tab-btn active px-4 py-2 rounded-full transition-all border bg-indigo-600 text-white shadow-md dark:bg-indigo-700" data-tab="training">
                         Training courses
                     </button>
-                    <!-- <button class="tab-btn px-4 py-2 rounded-full hover:bg-blue-100 dark:hover:bg-gray-800" data-tab="interviews">
-                Interviews preparation
-            </button> -->
-
-
-                    <button class="tab-btn px-4 py-2 rounded-full hover:bg-blue-100 dark:hover:bg-gray-800"
-                        data-tab="reservation">
+                    <button class="tab-btn px-4 py-2 rounded-full transition-all border bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-100 dark:border-indigo-700 dark:hover:bg-indigo-900/50" data-tab="reservation">
                         Reservation Benefits
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-full hover:bg-blue-100 dark:hover:bg-gray-800"
-                        data-tab="government">
+                    <button class="tab-btn px-4 py-2 rounded-full transition-all border bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-100 dark:border-indigo-700 dark:hover:bg-indigo-900/50" data-tab="government">
                         Government Schemes
                     </button>
-                    <button class="tab-btn px-4 py-2 rounded-full hover:bg-blue-100 dark:hover:bg-gray-800"
-                        data-tab="rights">
+                    <button class="tab-btn px-4 py-2 rounded-full transition-all border bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-100 dark:border-indigo-700 dark:hover:bg-indigo-900/50" data-tab="rights">
                         Your Rights
                     </button>
                 </div>
@@ -838,25 +824,48 @@
         document.getElementById('mobile-theme-toggle').addEventListener('click', function () {
             document.getElementById('theme-toggle').click();
         });
-
-        // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Add active class to clicked button
-                button.classList.add('active', 'bg-blue-600', 'text-white');
-
-                // Show corresponding content
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Function to update button styles
+    function updateTabStyles(activeTab) {
+        tabButtons.forEach(btn => {
+            if (btn.dataset.tab === activeTab) {
+                btn.classList.remove('bg-indigo-50', 'text-indigo-700', 'hover:bg-indigo-100', 'border-indigo-200', 
+                                   'dark:bg-indigo-900/30', 'dark:text-indigo-100', 'dark:border-indigo-700', 'dark:hover:bg-indigo-900/50');
+                btn.classList.add('bg-indigo-600', 'text-white', 'shadow-md', 'dark:bg-indigo-700');
+            } else {
+                btn.classList.add('bg-indigo-50', 'text-indigo-700', 'hover:bg-indigo-100', 'border-indigo-200', 
+                                 'dark:bg-indigo-900/30', 'dark:text-indigo-100', 'dark:border-indigo-700', 'dark:hover:bg-indigo-900/50');
+                btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-md', 'dark:bg-indigo-700');
+            }
         });
+    }
+    
+    // Function to show the selected tab content
+    function showTabContent(tabId) {
+        tabContents.forEach(content => {
+            if (content.id === `${tabId}-tab`) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+    }
+    
+    // Set initial active tab (training)
+    updateTabStyles('training');
+    
+    // Add click event listeners to tab buttons
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.dataset.tab;
+            updateTabStyles(tabId);
+            showTabContent(tabId);
+        });
+    });
+});
 
         // Accordion functionality
         const accordions = document.querySelectorAll('.accordion');
