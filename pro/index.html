@@ -39,17 +39,9 @@
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .theme-toggle-track {
@@ -65,25 +57,15 @@
         }
 
         @keyframes floating {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
-        /* Fix for dark mode toggle */
         #theme-toggle:checked+.theme-toggle-track .theme-toggle-thumb {
             transform: translateX(1.5rem);
         }
 
-        /* Mobile menu animation */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -118,9 +100,52 @@
             opacity: 1;
             visibility: visible;
         }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .section-visible .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered delays for cards in each section */
+        .services.section-visible .fade-in:nth-child(1) { animation-delay: 0s; }
+        .services.section-visible .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .services.section-visible .fade-in:nth-child(3) { animation-delay: 0.4s; }
+
+        .jobs.section-visible .fade-in:nth-child(1) { animation-delay: 0s; }
+        .jobs.section-visible .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .jobs.section-visible .fade-in:nth-child(3) { animation-delay: 0.4s; }
+        .jobs.section-visible .fade-in:nth-child(4) { animation-delay: 0.6s; }
+
+        .testimonials.section-visible .fade-in:nth-child(1) { animation-delay: 0s; }
+        .testimonials.section-visible .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .testimonials.section-visible .fade-in:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Disable animations for prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in {
+                animation: none;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
-
 
 <body
     class="bg-gradient-to-br from-blue-50 to-purple-50 text-gray-800 dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 transition-colors duration-300">
@@ -130,7 +155,7 @@
             <a href="index.html" class="flex items-center space-x-2">
                 <div class="rounded-full p-2">
                     <div>
-                        <img src="assets/logo.webp" alt="" width="50px" height="50px" class="rounded-lg">
+                        <img src="assets/logo.webp" alt="Udyog Saarthi Logo" width="50px" height="50px" class="rounded-lg">
                     </div>
                 </div>
                 <span class="text-2xl font-bold">Udyog Saarthi</span>
@@ -162,7 +187,6 @@
                             <span>Job Coaching</span>
                         </a>
                     </li>
-                    
                     <li>
                         <a href="job.html"
                             class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
@@ -177,7 +201,6 @@
                             <span>Contact</span>
                         </a>
                     </li>
-
                     <!-- Theme Toggle Button -->
                     <li>
                         <button id="theme-toggle"
@@ -216,7 +239,6 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    
                     <li>
                         <a href="jobCoaching.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
@@ -246,7 +268,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                     aria-hidden="true" data-slot="icon" class="h-5 w-5">
                                     <path
-                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
+                                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 1 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 1 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z">
                                     </path>
                                 </svg>
                             </button>
@@ -256,11 +278,12 @@
             </div>
         </div>
     </header>
+
     <!-- HERO SECTION START -->
-    <section class="pt-32 pb-16 overflow-hidden w-full">
+    <section class="pt-32 pb-16 overflow-hidden w-full mb-3 ">
         <div class="container mx-auto px-6 text-center w-full mt-12">
             <div class="flex flex-col items-center justify-center text-center w-full">
-                <div class="w-full flex flex-col items-center">
+                <div class="w-full flex flex-col items-center mt-9">
                     <h1
                         class="w-full text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text text-center leading-16">
                         Empowering Careers for Everyone
@@ -268,8 +291,7 @@
 
                     <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
                         Get access to personalized job coaching, comprehensive training materials, and exclusive job
-                        opportunities
-                        under the 4% reservation.
+                        opportunities under the 4% reservation.
                     </p>
 
                     <div class="flex flex-wrap justify-center gap-4">
@@ -286,59 +308,50 @@
             </div>
         </div>
     </section>
-
-
     <!-- HERO SECTION END -->
 
     <!-- SERVICES SECTION START -->
-    <section class="py-20">
+    <section class="py-20 services">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2
                     class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
                     Our Services</h2>
                 <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Comprehensive support for your career
-                    journey with
-                    personalized guidance and opportunities.</p>
+                    journey with personalized guidance and opportunities.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden fade-in">
                     <div class="h-40 accent-gradient flex items-center justify-center">
                         <i class="fas fa-user-tie text-6xl text-white"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-3">Learning Hub</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">Access personalized guidance and structured
-                            training
-                            programs designed to improve your skills and job readiness.</p>
-                        
+                            training programs designed to improve your skills and job readiness.</p>
                     </div>
                 </div>
 
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden fade-in">
                     <div class="h-40 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center">
                         <i class="fas fa-laptop text-6xl text-white"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-3">Training Materials</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">Get interactive learning resources including
-                            videos,
-                            quizzes, and comprehensive skill development guides.</p>
-                        
+                            videos, quizzes, and comprehensive skill development guides.</p>
                     </div>
                 </div>
 
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden fade-in">
                     <div class="h-40 bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center">
                         <i class="fas fa-briefcase text-6xl text-white"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-3">Job Opportunities</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">Find curated job openings that match your
-                            skills and
-                            eligibility under the 4% reservation policy.</p>
-                        
+                            skills and eligibility under the 4% reservation policy.</p>
                     </div>
                 </div>
             </div>
@@ -372,19 +385,18 @@
     <!-- STATS SECTION END -->
 
     <!-- LATEST JOBS SECTION START -->
-    <section class="py-20">
+    <section class="py-20 jobs">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2
                     class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
                     Latest Job Opportunities</h2>
                 <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Explore our curated list of job openings
-                    available
-                    under the 4% reservation policy.</p>
+                    available under the 4% reservation policy.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-blue-500">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-blue-500 fade-in">
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Assistant Clerk - NIEPMD</h3>
@@ -395,8 +407,7 @@
                                         class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mb-4">Join the National Institute for Empowerment
-                                of Persons
-                                with Multiple Disabilities as an Assistant Clerk.</p>
+                                of Persons with Multiple Disabilities as an Assistant Clerk.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span
                                     class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm">Administrative</span>
@@ -417,7 +428,7 @@
                 </div>
 
                 <div
-                    class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-purple-500">
+                    class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-purple-500 fade-in">
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Customer Support - PwD Quota</h3>
@@ -428,8 +439,7 @@
                                         class="fas fa-clock mr-2 text-blue-500"></i> Part-Time</span>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mb-4">Join our customer support team to provide
-                                assistance to
-                                clients through phone and email channels.</p>
+                                assistance to clients through phone and email channels.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span
                                     class="px-3 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded-full text-sm">Customer
@@ -450,7 +460,7 @@
                     </div>
                 </div>
 
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-green-500">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-green-500 fade-in">
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Web Developer - Junior</h3>
@@ -461,8 +471,7 @@
                                         class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mb-4">Join our development team to build
-                                accessible web
-                                applications with modern technologies.</p>
+                                accessible web applications with modern technologies.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span
                                     class="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-sm">Technology</span>
@@ -480,7 +489,7 @@
                     </div>
                 </div>
 
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-red-500">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-l-4 border-red-500 fade-in">
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-xl font-semibold mb-2">Office Administrator</h3>
@@ -491,8 +500,7 @@
                                         class="fas fa-clock mr-2 text-blue-500"></i> Full-Time</span>
                             </div>
                             <p class="text-gray-600 dark:text-gray-300 mb-4">Handle administrative tasks and support
-                                day-to-day
-                                operations of our Delhi office.</p>
+                                day-to-day operations of our Delhi office.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span
                                     class="px-3 py-1 bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 rounded-full text-sm">Administrative</span>
@@ -523,19 +531,18 @@
     <!-- LATEST JOBS SECTION END -->
 
     <!-- TESTIMONIALS SECTION START -->
-    <section class="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+    <section class="py-20 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 testimonials">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2
                     class="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 inline-block text-transparent bg-clip-text">
                     Success Stories</h2>
                 <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Hear from individuals who found their
-                    career path
-                    through Udyog Saarthi.</p>
+                    career path through Udyog Saarthi.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 fade-in">
                     <div class="flex flex-col items-center text-center">
                         <div
                             class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 mb-4 flex items-center justify-center text-white text-2xl font-bold">
@@ -552,13 +559,12 @@
                         </div>
                         <p class="text-gray-600 dark:text-gray-300 italic">
                             "Udyog Saarthi helped me gain the skills and confidence needed to secure a job as a software
-                            developer.
-                            Their coaching and training were invaluable."
+                            developer. Their coaching and training were invaluable."
                         </p>
                     </div>
                 </div>
 
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 fade-in">
                     <div class="flex flex-col items-center text-center">
                         <div
                             class="w-20 h-20 rounded-full bg-gradient-to-r from-pink-500 to-red-500 mb-4 flex items-center justify-center text-white text-2xl font-bold">
@@ -575,13 +581,12 @@
                         </div>
                         <p class="text-gray-600 dark:text-gray-300 italic">
                             "The job coaching services at Udyog Saarthi were personalized to my needs. They helped me
-                            prepare for
-                            interviews and land my dream job."
+                            prepare for interviews and land my dream job."
                         </p>
                     </div>
                 </div>
 
-                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                <div class="card-hover bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 fade-in">
                     <div class="flex flex-col items-center text-center">
                         <div
                             class="w-20 h-20 rounded-full bg-gradient-to-r from-green-500 to-teal-500 mb-4 flex items-center justify-center text-white text-2xl font-bold">
@@ -598,8 +603,7 @@
                         </div>
                         <p class="text-gray-600 dark:text-gray-300 italic">
                             "Working remotely seemed impossible until Udyog Saarthi connected me with a company that
-                            values my skills.
-                            The training prepared me perfectly."
+                            values my skills. The training prepared me perfectly."
                         </p>
                     </div>
                 </div>
@@ -607,8 +611,6 @@
         </div>
     </section>
     <!-- TESTIMONIALS SECTION END -->
-
-    
 
     <!-- FOOTER START -->
     <footer class="gradient-bg text-white py-6">
@@ -622,8 +624,7 @@
                         <span class="text-xl font-bold">Udyog Saarthi</span>
                     </div>
                     <p class="text-blue-100 mb-4">Empowering careers for everyone through personalized guidance and
-                        equal
-                        opportunities.</p>
+                        equal opportunities.</p>
                     <div class="flex space-x-4">
                         <a href="c" class="text-white hover:text-blue-200 transition">
                             <i class="fab fa-facebook-f"></i>
@@ -681,7 +682,7 @@
             </div>
 
             <div class="border-t border-blue-500 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-                <p>&copy; 2025 Udyog Saarthi. All rights reserved.</p>
+                <p>© 2025 Udyog Saarthi. All rights reserved.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" class="text-blue-100 hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="text-blue-100 hover:text-white transition">Terms of Service</a>
@@ -693,13 +694,29 @@
     <!-- FOOTER END -->
 
     <script src="dark.js"></script>
-
     <script src="smallScreen.js"></script>
-
     <script src="counter.js"></script>
 
+    <script>
+        // Intersection Observer to trigger fade-in animations when sections are in viewport
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.services, .jobs, .testimonials');
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-visible');
+                        observer.unobserve(entry.target); // Stop observing after animation
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 10% of the section is visible
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
-
-
 </html>
