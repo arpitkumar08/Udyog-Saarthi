@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Sign Up</title>
+    <title>Login / Sign Up - Udyog Saarthi</title>
+    <!-- Tailwind CSS CDN (only latest version) -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        /* Ensure Poppins font globally */
+        *, body, html {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        /* Gradient background for body */
         body {
-            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
             background-size: 200% 200%;
             animation: gradientBG 15s ease infinite;
@@ -25,6 +29,7 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Card styling for form */
         .card {
             backdrop-filter: blur(16px) saturate(180%);
             background-color: rgba(255, 255, 255, 0.75);
@@ -34,6 +39,7 @@
             overflow: hidden;
         }
 
+        /* Tab buttons */
         .tab-button {
             transition: all 0.3s ease;
             position: relative;
@@ -63,6 +69,7 @@
             color: white;
         }
 
+        /* Form inputs */
         .form-control {
             transition: all 0.3s ease;
             border: 2px solid #e5e7eb;
@@ -73,6 +80,7 @@
             box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
         }
 
+        /* Primary button */
         .btn-primary {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             border: none;
@@ -85,6 +93,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
+        /* Forms container */
         .forms-container {
             position: relative;
             width: 100%;
@@ -92,6 +101,7 @@
             overflow: hidden;
         }
 
+        /* Tab content animations */
         .tab-content {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: absolute;
@@ -118,6 +128,7 @@
             transform: translateX(100%);
         }
 
+        /* Floating labels */
         .floating-label {
             position: relative;
             margin-bottom: 1.5rem;
@@ -146,6 +157,7 @@
             color: #8b5cf6;
         }
 
+        /* Checkbox styling */
         .checkbox-custom {
             display: flex;
             align-items: center;
@@ -156,7 +168,6 @@
             opacity: 0;
             width: 0;
             height: 0;
-
         }
 
         .checkbox-custom label {
@@ -183,115 +194,117 @@
             border-color: #8b5cf6;
         }
 
-        /* /* .checkbox-custom input[type="checkbox"]:checked + label::after {
+        .checkbox-custom input[type="checkbox"]:checked + label::after {
             content: '✓';
             position: absolute;
             left: 0.35rem;
             top: -0.05rem;
             color: white;
             font-size: 0.85rem;
-        } */
+        }
 
-       
-
-        /* Animation for the card */
+        /* Card animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .card {
+        .card, .branding-section {
             animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Branding section (logo + description) */
+        .branding-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-
 <body class="min-h-screen flex items-center justify-center p-6">
-    <div class="card max-w-md w-full mx-auto">
-        <!-- Tabs -->
-        <div class="flex">
-            <button id="login-tab" class="tab-button w-1/2 py-4 px-6 text-center active" onclick="showTab('login')">Login</button>
-            <button id="signup-tab" class="tab-button w-1/2 py-4 px-6 text-center" onclick="showTab('signup')">Sign Up</button>
+    <div class="container mx-auto flex flex-col md:flex-row max-w-6xl w-full gap-6">
+        <!-- Left: Branding Section (Logo + Description) -->
+        <div class="branding-section w-full md:w-1/2 p-8 flex flex-col items-center justify-center text-center">
+            <img src="assets/logo.webp" alt="Udyog Saarthi Logo" class="w-72 h-72 mb-6 rounded-full shadow-lg">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Udyog Saarthi</h1>
+            <p class="text-gray-600 max-w-md">
+                Empowering careers for everyone with accessible job coaching, personalized guidance, and inclusive opportunities. Join us to unlock your potential and build a brighter future, regardless of ability.
+            </p>
         </div>
-
-        <!-- Forms Container -->
-        <div class="forms-container h-[600px] ">
-            <!-- Login Form -->
-            <div id="login-content" class="tab-content">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-800">Welcome Back!</h2>
-                    <p class="text-gray-600 mt-2">Please login to your account</p>
-                </div>
-
-            
-
-                <form class="space-y-4" method="POST" action="login.php">
-                    <div class="floating-label">
-                        <input id="login-email" name="email" type="email" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                        <label for="login-email">Email Address</label>
-                    </div>
-
-                    <div class="floating-label">
-                        <input id="login-password" name="password" type="password" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                        <label for="login-password">Password</label>
-                    </div>
-
-                    <button type="submit" class="relative top-9 btn-primary w-full py-3 px-4 rounded-lg text-white font-medium focus:outline-none">
-                        Login to Account
-                    </button>
-                </form>
+        <!-- Right: Login/Signup Form -->
+        <div class="card w-full md:w-1/2">
+            <!-- Tabs -->
+            <div class="flex">
+                <button id="login-tab" class="tab-button w-1/2 py-4 px-6 text-center active" onclick="showTab('login')">Login</button>
+                <button id="signup-tab" class="tab-button w-1/2 py-4 px-6 text-center" onclick="showTab('signup')">Sign Up</button>
             </div>
-
-            <!-- Signup Form -->
-            <div id="signup-content" class="tab-content slide-right">
-                <div class="text-center mb-6">
-                    <h2 class="text-3xl font-bold text-gray-800">Create Account</h2>
-                    <p class="text-gray-600 mt-2">Join Udoyog to get started</p>
+            <!-- Forms Container -->
+            <div class="forms-container h-[600px]">
+                <!-- Login Form -->
+                <div id="login-content" class="tab-content">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800">Welcome Back!</h2>
+                        <p class="text-gray-600 mt-2">Please login to your account</p>
+                    </div>
+                    <form class="space-y-4" method="POST" action="#">
+                        <div class="floating-label">
+                            <input id="login-email" name="email" type="email" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                            <label for="login-email">Email Address</label>
+                        </div>
+                        <div class="floating-label">
+                            <input id="login-password" name="password" type="password" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                            <label for="login-password">Password</label>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 px-4 rounded-lg text-white font-medium focus:outline-none">
+                            Login to Account
+                        </button>
+                    </form>
                 </div>
-
-                <form class="space-y-4" method="POST" action="signup.php">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="floating-label">
-                            <input id="first-name" name="first-name" type="text" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                            <label for="first-name">First Name</label>
+                <!-- Signup Form -->
+                <div id="signup-content" class="tab-content slide-right">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800">Create Account</h2>
+                        <p class="text-gray-600 mt-2">Join Udyog Saarthi to get started</p>
+                    </div>
+                    <form class="space-y-4" method="POST" action="#">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="floating-label">
+                                <input id="first-name" name="first-name" type="text" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                                <label for="first-name">First Name</label>
+                            </div>
+                            <div class="floating-label">
+                                <input id="last-name" name="last-name" type="text" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                                <label for="last-name">Last Name</label>
+                            </div>
                         </div>
                         <div class="floating-label">
-                            <input id="last-name" name="last-name" type="text" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                            <label for="last-name">Last Name</label>
+                            <input id="signup-email" name="email" type="email" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                            <label for="signup-email">Email Address</label>
                         </div>
-                    </div>
-
-                    <div class="floating-label">
-                        <input id="signup-email" name="email" type="email" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                        <label for="signup-email">Email Address</label>
-                    </div>
-
-                    <div class="floating-label">
-                        <input id="signup-password" name="password" type="password" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                        <label for="signup-password">Password</label>
-                    </div>
-
-                    <div class="floating-label">
-                        <input id="confirm-password" name="confirm-password" type="password" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
-                        <label for="confirm-password">Confirm Password</label>
-                    </div>
-
-                    <div class="checkbox-custom mt-4">
-                        <input id="terms" name="terms" type="checkbox" required class="border-2 border-black">
-                        <label for="terms">
-                            I agree to the <a href="#" class="text-purple-600 hover:underline">Terms of Service</a> and 
-                            <a href="#" class="text-purple-600 hover:underline">Privacy Policy</a>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn-primary w-full py-3 px-4 rounded-lg text-white font-medium focus:outline-none mt-6">
-                        Sign Up
-                    </button>
-                </form>
+                        <div class="floating-label">
+                            <input id="signup-password" name="password" type="password" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                            <label for="signup-password">Password</label>
+                        </div>
+                        <div class="floating-label">
+                            <input id="confirm-password" name="confirm-password" type="password" class="form-control block w-full rounded-lg text-gray-700" placeholder=" " required>
+                            <label for="confirm-password">Confirm Password</label>
+                        </div>
+                        <div class="checkbox-custom mt-4">
+                            <input id="terms" name="terms" type="checkbox" required class="border-2 border-black">
+                            <label for="terms">
+                                I agree to the <a href="#" class="text-purple-600 hover:underline">Terms of Service</a> and 
+                                <a href="#" class="text-purple-600 hover:underline">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 px-4 rounded-lg text-white font-medium focus:outline-none mt-6">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
     <script>
         let currentTab = 'login';
 
@@ -303,17 +316,14 @@
             const loginContent = document.getElementById('login-content');
             const signupContent = document.getElementById('signup-content');
 
-            // Update tab buttons
             if (tab === 'login') {
                 loginTab.classList.add('active');
                 signupTab.classList.remove('active');
-                // Slide login in from left, signup out to right
                 loginContent.classList.remove('slide-left');
                 signupContent.classList.add('slide-right');
             } else {
                 signupTab.classList.add('active');
                 loginTab.classList.remove('active');
-                // Slide signup in from right, login out to left
                 loginContent.classList.add('slide-left');
                 signupContent.classList.remove('slide-right');
             }
@@ -321,11 +331,8 @@
             currentTab = tab;
         }
 
-        // Initialize the tabs
         window.onload = () => {
             showTab('login');
-            
-            // Initialize floating labels for any pre-filled inputs
             document.querySelectorAll('.floating-label input').forEach(input => {
                 if (input.value !== '') {
                     input.classList.add('has-value');
@@ -334,4 +341,4 @@
         };
     </script>
 </body>
-</html>
+</html> 
