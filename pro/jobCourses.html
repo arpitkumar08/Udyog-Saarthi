@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Coaching Courses | Udyog Saarthi</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="assets/logo.webp">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
         .gradient-bg {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
-        
+
         .course-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
+
         .course-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
         }
-        
+
         .dark .course-card {
             background-color: #1e293b;
             border-color: #334155;
         }
-        
+
         .dark .course-card:hover {
             box-shadow: 0 15px 30px rgba(40, 40, 41, 0.2);
         }
-        
+
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -43,7 +53,7 @@
             transition: right 0.3s ease-in-out;
             z-index: 50;
             overflow-y: auto;
-           
+
         }
 
         .mobile-menu.active {
@@ -67,42 +77,43 @@
             opacity: 1;
             visibility: visible;
         }
-        
+
         .feature-icon {
             transition: all 0.3s ease;
         }
-        
+
         .feature-card:hover .feature-icon {
             transform: scale(1.1);
             color: #818cf8;
         }
-        
+
         .enroll-btn {
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
         }
-        
+
         .enroll-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px rgba(99, 102, 241, 0.4);
         }
-        
+
         .resource-item {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .resource-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
             border-left: 4px solid #818cf8;
         }
-        
+
         .category-btn {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900">
     <!-- Header -->
 
@@ -131,19 +142,19 @@
                 <ul class="flex items-center justify-center space-x-2">
                     <li>
                         <a href="index.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-30 transition-all">
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full  hover:bg-opacity-30 transition-all">
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
                         <a href="jobCoaching.html"
-                            class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
+                            class="flex items-center space-x-1 px-4 py-2 rounded-full bg-white bg-opacity-10 hover:bg-white hover:bg-opacity-20 transition-all">
                             <i class="fas fa-user-graduate"></i>
                             <span>Job Coaching</span>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="job.html"
                             class="flex items-center space-x-1 px-4 py-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all">
@@ -211,7 +222,7 @@
                             <span>Job Coaching</span>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="job.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
@@ -251,27 +262,40 @@
         <section class="gradient-bg text-white rounded-xl shadow-lg overflow-hidden mt-5 mb-12">
             <div class="container mx-auto px-6 py-12 text-center">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6">Job Coaching Courses</h1>
-                <p class="text-xl max-w-3xl mx-auto mb-8">Develop your skills through our inclusive courses designed specifically for persons with disabilities under the 4% reservation category</p>
-                
+                <p class="text-xl max-w-3xl mx-auto mb-8">Develop your skills through our inclusive courses designed
+                    specifically for persons with disabilities under the 4% reservation category</p>
+
             </div>
         </section>
 
- 
 
-    <!-- Course Categories -->
-    <section class="mb-12">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-100">Course Categories</h2>
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <button class="category-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-category="all">All Courses</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-category="soft-skills">Soft Skills</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-violet-50 text-violet-700 hover:bg-violet-100 transition-all border border-violet-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-category="digital">Digital Literacy</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-all border border-blue-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-category="interview">Interview Prep</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-purple-50 text-purple-700 hover:bg-purple-100 transition-all border border-purple-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-category="government">Government Exams</button>
-                <button class="category-btn px-4 py-2 rounded-full bg-fuchsia-50 text-fuchsia-700 hover:bg-fuchsia-100 transition-all border border-fuchsia-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70" data-category="technical">Technical Skills</button>
+
+        <!-- Course Categories -->
+        <section class="mb-12">
+            <div class="container mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-100">Course Categories</h2>
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <button
+                        class="category-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70"
+                        data-category="all">All Courses</button>
+                    <button
+                        class="category-btn px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all border border-indigo-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70"
+                        data-category="soft-skills">Soft Skills</button>
+                    <button
+                        class="category-btn px-4 py-2 rounded-full bg-violet-50 text-violet-700 hover:bg-violet-100 transition-all border border-violet-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70"
+                        data-category="digital">Digital Literacy</button>
+                    <button
+                        class="category-btn px-4 py-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-all border border-blue-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70"
+                        data-category="interview">Interview Prep</button>
+                    <button
+                        class="category-btn px-4 py-2 rounded-full bg-purple-50 text-purple-700 hover:bg-purple-100 transition-all border border-purple-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70"
+                        data-category="government">Government Exams</button>
+                    <button
+                        class="category-btn px-4 py-2 rounded-full bg-fuchsia-50 text-fuchsia-700 hover:bg-fuchsia-100 transition-all border border-fuchsia-100 dark:bg-gray-700/50 dark:text-gray-100 dark:border-gray-600 dark:hover:bg-gray-700/70"
+                        data-category="technical">Technical Skills</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
 
@@ -281,120 +305,163 @@
                 <h2 class="text-2xl font-bold mb-8 text-gray-800 dark:text-white">Featured Courses</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Course 1 -->
-                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700" data-category="soft-skills">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Effective Communication" class="w-full h-48 object-cover">
+                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700"
+                        data-category="soft-skills">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="Effective Communication" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Effective Communication Skills</h3>
-                                <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded">Soft Skills</span>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Effective Communication
+                                    Skills</h3>
+                                <span
+                                    class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded">Soft
+                                    Skills</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Learn to communicate clearly and confidently in professional settings with disability-specific strategies.</p>
-                            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Learn to communicate clearly and
+                                confidently in professional settings with disability-specific strategies.</p>
+                            <div
+                                class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 <span><i class="far fa-clock mr-1"></i> 4 hours</span>
                                 <span><i class="fas fa-user-graduate mr-1"></i> Beginner</span>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-indigo-600 dark:text-indigo-400 font-medium">Free</span>
-                                <a href="https://www.coursera.org/learn/communication-skills" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
+                                <a href="https://www.coursera.org/learn/communication-skills"
+                                    class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Sign Language for Customer Service -->
-                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700" data-category="soft-skills">
-                        <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sign Language for Customer Service" class="w-full h-48 object-cover">
+                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700"
+                        data-category="soft-skills">
+                        <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="Sign Language for Customer Service" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Indian Sign Language for Customer Service</h3>
-                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded">Communication</span>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Indian Sign Language for
+                                    Customer Service</h3>
+                                <span
+                                    class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded">Communication</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Learn essential Indian Sign Language (ISL) phrases and etiquette to better serve deaf and hard-of-hearing customers in various service scenarios.</p>
-                            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Learn essential Indian Sign Language (ISL)
+                                phrases and etiquette to better serve deaf and hard-of-hearing customers in various
+                                service scenarios.</p>
+                            <div
+                                class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 <span><i class="far fa-clock mr-1"></i> 6 hours</span>
                                 <span><i class="fas fa-user-graduate mr-1"></i> Beginner</span>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-indigo-600 dark:text-indigo-400 font-medium">Free</span>
-                                <a href="https://www.chs.ca/service/learn-asl" target="_self" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
+                                <a href="https://www.chs.ca/service/learn-asl" target="_self"
+                                    class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Course 3 -->
-                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700" data-category="interview">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Interview Preparation" class="w-full h-48 object-cover">
+                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700"
+                        data-category="interview">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="Interview Preparation" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold text-gray-800 dark:text-white">PwD Interview Success</h3>
-                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded">Interview</span>
+                                <span
+                                    class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs px-2 py-1 rounded">Interview</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Prepare for interviews with disability-specific guidance, practice questions and accommodations advice.</p>
-                            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Prepare for interviews with
+                                disability-specific guidance, practice questions and accommodations advice.</p>
+                            <div
+                                class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 <span><i class="far fa-clock mr-1"></i> 3 hours</span>
                                 <span><i class="fas fa-user-graduate mr-1"></i> All Levels</span>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-indigo-600 dark:text-indigo-400 font-medium">Free</span>
-                                <a href="https://www.udemy.com/course/interview-skills/" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
+                                <a href="https://www.udemy.com/course/interview-skills/"
+                                    class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Course 4 -->
-                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700" data-category="government">
-                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Government Exams" class="w-full h-48 object-cover">
+                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700"
+                        data-category="government">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="Government Exams" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">SSC & UPSC PwD Preparation</h3>
-                                <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs px-2 py-1 rounded">Government</span>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">SSC & UPSC PwD Preparation
+                                </h3>
+                                <span
+                                    class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs px-2 py-1 rounded">Government</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive guide to cracking government exams with 4% reservation benefits and accommodations.</p>
-                            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive guide to cracking government
+                                exams with 4% reservation benefits and accommodations.</p>
+                            <div
+                                class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 <span><i class="far fa-clock mr-1"></i> 8 hours</span>
                                 <span><i class="fas fa-user-graduate mr-1"></i> Advanced</span>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-indigo-600 dark:text-indigo-400 font-medium">Free</span>
-                                <a href="https://upsc.gov.in/examinations/guidelines-persons-disabilities" target="_self" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
+                                <a href="https://upsc.gov.in/examinations/guidelines-persons-disabilities"
+                                    target="_self" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll
+                                    Now</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Course 5 -->
-                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700" data-category="digital">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Microsoft Office" class="w-full h-48 object-cover">
+                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700"
+                        data-category="digital">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="Microsoft Office" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Microsoft Office for PwD</h3>
-                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded">Digital</span>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Microsoft Office for PwD
+                                </h3>
+                                <span
+                                    class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded">Digital</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Master Word, Excel and PowerPoint with accessibility features and workplace productivity tips.</p>
-                            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Master Word, Excel and PowerPoint with
+                                accessibility features and workplace productivity tips.</p>
+                            <div
+                                class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 <span><i class="far fa-clock mr-1"></i> 6 hours</span>
                                 <span><i class="fas fa-user-graduate mr-1"></i> Intermediate</span>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-indigo-600 dark:text-indigo-400 font-medium">Free</span>
-                                <a href="https://learn.microsoft.com/en-us/training/" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
+                                <a href="https://learn.microsoft.com/en-us/training/"
+                                    class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
                             </div>
                         </div>
                     </div>
                     <!-- Course 6 -->
-                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700" data-category="technical">
-                        <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Data Entry" class="w-full h-48 object-cover">
+                    <div class="course-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700"
+                        data-category="technical">
+                        <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="Data Entry" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold text-gray-800 dark:text-white">Data Entry Specialist</h3>
-                                <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs px-2 py-1 rounded">Technical</span>
+                                <span
+                                    class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs px-2 py-1 rounded">Technical</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Develop speed and accuracy for data processing jobs with assistive technology training.</p>
-                            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Develop speed and accuracy for data
+                                processing jobs with assistive technology training.</p>
+                            <div
+                                class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 <span><i class="far fa-clock mr-1"></i> 5 hours</span>
                                 <span><i class="fas fa-user-graduate mr-1"></i> Beginner</span>
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-indigo-600 dark:text-indigo-400 font-medium">Free</span>
-                                <a href="https://www.udemy.com/course/data-entry-course-for-beginners-become-virtual-assistant/" class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
+                                <a href="https://www.udemy.com/course/data-entry-course-for-beginners-become-virtual-assistant/"
+                                    class="px-4 py-2 enroll-btn text-white rounded-lg transition">Enroll Now</a>
                             </div>
                         </div>
                     </div>
@@ -406,8 +473,9 @@
         <section class="mb-16 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
             <div class="container mx-auto">
                 <h2 class="text-2xl font-bold mb-8 text-gray-800 dark:text-white">Additional Learning Resources</h2>
-                <p class="mb-6 text-gray-600 dark:text-gray-300">Explore these external platforms for more learning opportunities:</p>
-                
+                <p class="mb-6 text-gray-600 dark:text-gray-300">Explore these external platforms for more learning
+                    opportunities:</p>
+
                 <div class="space-y-4">
                     <!-- Resource Item 1 -->
                     <div class="resource-item bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-start">
@@ -415,14 +483,16 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-gray-800 dark:text-white">NPTEL (National Programme on Technology Enhanced Learning)</h3>
+                            <h3 class="font-bold text-gray-800 dark:text-white">NPTEL (National Programme on Technology
+                                Enhanced Learning)</h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-2">Free online courses from IITs and IISc</p>
-                            <a href="https://nptel.ac.in" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
+                            <a href="https://nptel.ac.in" target="_blank"
+                                class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
                                 Visit Website <i class="fas fa-arrow-right ml-2 text-sm"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Resource Item 2 -->
                     <div class="resource-item bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-start">
                         <div class="resource-icon text-indigo-600 dark:text-indigo-400 text-xl mr-4 mt-1">
@@ -430,13 +500,15 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-gray-800 dark:text-white">Diksha</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-2">National digital infrastructure for teachers and students</p>
-                            <a href="https://diksha.gov.in" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
+                            <p class="text-gray-600 dark:text-gray-300 mb-2">National digital infrastructure for
+                                teachers and students</p>
+                            <a href="https://diksha.gov.in" target="_blank"
+                                class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
                                 Visit Website <i class="fas fa-arrow-right ml-2 text-sm"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Resource Item 3 -->
                     <div class="resource-item bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-start">
                         <div class="resource-icon text-indigo-600 dark:text-indigo-400 text-xl mr-4 mt-1">
@@ -444,13 +516,15 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-gray-800 dark:text-white">SWAYAM</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-2">Government's free online education platform</p>
-                            <a href="https://swayam.gov.in" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
+                            <p class="text-gray-600 dark:text-gray-300 mb-2">Government's free online education platform
+                            </p>
+                            <a href="https://swayam.gov.in" target="_blank"
+                                class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
                                 Visit Website <i class="fas fa-arrow-right ml-2 text-sm"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Resource Item 4 -->
                     <div class="resource-item bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-start">
                         <div class="resource-icon text-indigo-600 dark:text-indigo-400 text-xl mr-4 mt-1">
@@ -458,22 +532,27 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-gray-800 dark:text-white">Skill India Digital</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-2">Government skilling initiative with disability-friendly courses</p>
-                            <a href="https://www.skillindiadigital.gov.in" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
+                            <p class="text-gray-600 dark:text-gray-300 mb-2">Government skilling initiative with
+                                disability-friendly courses</p>
+                            <a href="https://www.skillindiadigital.gov.in" target="_blank"
+                                class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
                                 Visit Website <i class="fas fa-arrow-right ml-2 text-sm"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Resource Item 5 -->
                     <div class="resource-item bg-gray-50 dark:bg-gray-700 p-4 rounded-lg flex items-start">
                         <div class="resource-icon text-indigo-600 dark:text-indigo-400 text-xl mr-4 mt-1">
                             <i class="fas fa-universal-access"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-gray-800 dark:text-white">XRCVC (Xavier's Resource Centre for the Visually Challenged)</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-2">Specialized resources for visually impaired learners</p>
-                            <a href="https://www.xrcvc.org" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
+                            <h3 class="font-bold text-gray-800 dark:text-white">XRCVC (Xavier's Resource Centre for the
+                                Visually Challenged)</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-2">Specialized resources for visually impaired
+                                learners</p>
+                            <a href="https://www.xrcvc.org" target="_blank"
+                                class="text-indigo-600 dark:text-indigo-400 hover:underline hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors duration-300 flex items-center">
                                 Visit Website <i class="fas fa-arrow-right ml-2 text-sm"></i>
                             </a>
                         </div>
@@ -481,7 +560,7 @@
                 </div>
             </div>
         </section>
-        
+
     </main>
 
     <!-- Footer -->
@@ -573,81 +652,82 @@
 
     <!-- Additional Scripts -->
     <script>
-      
 
 
 
 
-// Course Filtering with Persistent State
-document.addEventListener('DOMContentLoaded', function() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const courseCards = document.querySelectorAll('.course-card');
-    
-    // Get saved category from localStorage or default to 'all'
-    const currentCategory = localStorage.getItem('selectedCategory') || 'all';
-    
-    function updateButtonStyles(activeCategory) {
-        categoryButtons.forEach(btn => {
-            const btnCategory = btn.dataset.category;
-            const isActive = btnCategory === activeCategory;
-            const color = btnCategory === 'soft-skills' ? 'indigo' :
-                         btnCategory === 'digital' ? 'violet' :
-                         btnCategory === 'interview' ? 'blue' :
-                         btnCategory === 'government' ? 'purple' : 
-                         btnCategory === 'technical' ? 'fuchsia' : 'indigo';
-            
-            // Reset all classes
-            btn.className = `category-btn px-4 py-2 rounded-full transition-all border`;
-            
-            // Apply active or inactive styles
-            if (isActive) {
-                btn.classList.add(
-                    'bg-indigo-500', 'text-white', 'shadow-md',
-                    'dark:bg-indigo-600', 'dark:text-white'
-                );
-            } else {
-                btn.classList.add(
-                    `bg-${color}-50`, `text-${color}-700`, `hover:bg-${color}-100`,
-                    `border-${color}-200`,
-                    `dark:bg-${color}-900/30`, `dark:text-${color}-100`,
-                    `dark:border-${color}-700`, `dark:hover:bg-${color}-900/50`
-                );
+
+        // Course Filtering with Persistent State
+        document.addEventListener('DOMContentLoaded', function () {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const courseCards = document.querySelectorAll('.course-card');
+
+            // Get saved category from localStorage or default to 'all'
+            const currentCategory = localStorage.getItem('selectedCategory') || 'all';
+
+            function updateButtonStyles(activeCategory) {
+                categoryButtons.forEach(btn => {
+                    const btnCategory = btn.dataset.category;
+                    const isActive = btnCategory === activeCategory;
+                    const color = btnCategory === 'soft-skills' ? 'indigo' :
+                        btnCategory === 'digital' ? 'violet' :
+                            btnCategory === 'interview' ? 'blue' :
+                                btnCategory === 'government' ? 'purple' :
+                                    btnCategory === 'technical' ? 'fuchsia' : 'indigo';
+
+                    // Reset all classes
+                    btn.className = `category-btn px-4 py-2 rounded-full transition-all border`;
+
+                    // Apply active or inactive styles
+                    if (isActive) {
+                        btn.classList.add(
+                            'bg-indigo-500', 'text-white', 'shadow-md',
+                            'dark:bg-indigo-600', 'dark:text-white'
+                        );
+                    } else {
+                        btn.classList.add(
+                            `bg-${color}-50`, `text-${color}-700`, `hover:bg-${color}-100`,
+                            `border-${color}-200`,
+                            `dark:bg-${color}-900/30`, `dark:text-${color}-100`,
+                            `dark:border-${color}-700`, `dark:hover:bg-${color}-900/50`
+                        );
+                    }
+                });
             }
-        });
-    }
-    
-    // Set initial active button
-    updateButtonStyles(currentCategory);
-    
-    // Filter courses based on saved category
-    courseCards.forEach(card => {
-        card.style.display = (currentCategory === 'all' || card.dataset.category === currentCategory) 
-            ? 'block' 
-            : 'none';
-    });
-    
-    // Handle button clicks
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.dataset.category;
-            
-            // Save to localStorage
-            localStorage.setItem('selectedCategory', category);
-            
-            // Update button styles
-            updateButtonStyles(category);
-            
-            // Filter courses
+
+            // Set initial active button
+            updateButtonStyles(currentCategory);
+
+            // Filter courses based on saved category
             courseCards.forEach(card => {
-                card.style.display = (category === 'all' || card.dataset.category === category) 
-                    ? 'block' 
+                card.style.display = (currentCategory === 'all' || card.dataset.category === currentCategory)
+                    ? 'block'
                     : 'none';
             });
+
+            // Handle button clicks
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+
+                    // Save to localStorage
+                    localStorage.setItem('selectedCategory', category);
+
+                    // Update button styles
+                    updateButtonStyles(category);
+
+                    // Filter courses
+                    courseCards.forEach(card => {
+                        card.style.display = (category === 'all' || card.dataset.category === category)
+                            ? 'block'
+                            : 'none';
+                    });
+                });
+            });
         });
-    });
-});
-        
+
 
     </script>
 </body>
+
 </html>
