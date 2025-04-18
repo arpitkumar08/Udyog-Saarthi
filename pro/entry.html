@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Sign Up - Udyog Saarthi</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="assets/logo.webp">
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -20,6 +18,14 @@
             background-color: #f8fafc;
             position: relative;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
+            color: #1a202c; /* Default text color for light mode */
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0; /* Default text color for dark mode */
         }
 
         /* Floating circles decoration */
@@ -46,6 +52,16 @@
             left: -100px;
         }
 
+        /* Dark mode for circles */
+        body.dark-mode .circle-1 {
+             background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        }
+
+         body.dark-mode .circle-2 {
+            background: linear-gradient(135deg, #e11d48, #be185d);
+        }
+
+
         /* Glass card effect */
         .card {
             background: rgba(255, 255, 255, 0.95);
@@ -56,6 +72,14 @@
             overflow: hidden;
             position: relative;
             z-index: 1;
+             transition: all 0.3s ease;
+        }
+
+        /* Dark mode for card */
+        body.dark-mode .card {
+            background: rgba(30, 41, 59, 0.95);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Tab styling */
@@ -82,6 +106,20 @@
             border-radius: 3px;
         }
 
+        /* Dark mode for tabs */
+        body.dark-mode .tab-button {
+            color: #94a3b8;
+        }
+
+        body.dark-mode .tab-button.active {
+            color: #a78bfa;
+        }
+
+         body.dark-mode .tab-button.active::after {
+            background: #a78bfa;
+        }
+
+
         /* Floating labels */
         .floating-label {
             position: relative;
@@ -95,6 +133,7 @@
             border-radius: 12px;
             transition: all 0.3s ease;
             background-color: #f8fafc;
+            color: #1a202c; /* Ensure input text is dark in light mode */
         }
 
         .floating-label input:focus {
@@ -119,6 +158,28 @@
             color: #4f46e5;
         }
 
+        /* Dark mode for floating labels */
+        body.dark-mode .floating-label input {
+            background-color: #2d3748;
+            border-color: #4a5568;
+            color: #e2e8f0; /* Input text is light in dark mode */
+        }
+
+        body.dark-mode .floating-label input:focus {
+            border-color: #a78bfa;
+            box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.3);
+            background-color: #2d3748;
+        }
+
+        body.dark-mode .floating-label label {
+            color: #a0aec0;
+        }
+
+        body.dark-mode .floating-label input:focus ~ label,
+        body.dark-mode .floating-label input:not(:placeholder-shown) ~ label {
+            color: #a78bfa;
+        }
+
         /* Button styling */
         .btn-primary {
             background: linear-gradient(135deg, #6366f1, #4f46e5);
@@ -135,6 +196,17 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px rgba(79, 70, 229, 0.2);
         }
+
+        /* Dark mode for primary button */
+         body.dark-mode .btn-primary {
+            background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+            box-shadow: 0 4px 6px rgba(167, 139, 250, 0.1);
+        }
+
+        body.dark-mode .btn-primary:hover {
+             box-shadow: 0 10px 15px rgba(167, 139, 250, 0.2);
+        }
+
 
         /* Checkbox styling */
         .checkbox-custom {
@@ -185,6 +257,22 @@
             font-size: 12px;
         }
 
+        /* Dark mode for checkbox */
+        body.dark-mode .checkbox-custom label {
+            color: #a0aec0;
+        }
+
+        body.dark-mode .checkbox-custom label::before {
+            border-color: #4a5568;
+            background-color: #2d3748;
+        }
+
+        body.dark-mode .checkbox-custom input[type="checkbox"]:checked + label::before {
+            background-color: #a78bfa;
+            border-color: #a78bfa;
+        }
+
+
         /* Branding section */
         .branding-section {
             background: white;
@@ -192,6 +280,13 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
+             transition: all 0.3s ease;
+        }
+
+         /* Dark mode for branding section */
+        body.dark-mode .branding-section {
+            background: #2d3748;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         .branding-section::before {
@@ -205,6 +300,12 @@
             z-index: 0;
         }
 
+        /* Dark mode for branding section pseudo-element */
+         body.dark-mode .branding-section::before {
+             background: radial-gradient(circle, rgba(167, 139, 250, 0.05) 0%, transparent 70%);
+         }
+
+
         /* Social login buttons */
         .social-btn {
             display: flex;
@@ -215,12 +316,26 @@
             border: 1px solid #e2e8f0;
             background: white;
             transition: all 0.3s ease;
+            color: #4a5568; /* Default text color for social buttons */
         }
 
         .social-btn:hover {
             border-color: #c7d2fe;
             background: #f8fafc;
         }
+
+        /* Dark mode for social buttons */
+         body.dark-mode .social-btn {
+            border-color: #4a5568;
+            background: #2d3748;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .social-btn:hover {
+            border-color: #a0aec0;
+            background: #4a5568;
+        }
+
 
         /* Divider */
         .divider {
@@ -245,6 +360,16 @@
             margin-left: 16px;
         }
 
+        /* Dark mode for divider */
+        body.dark-mode .divider {
+            color: #a0aec0;
+        }
+
+        body.dark-mode .divider::before, body.dark-mode .divider::after {
+             border-bottom: 1px solid #4a5568;
+        }
+
+
         /* Animation */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -254,22 +379,77 @@
         .floating {
             animation: float 6s ease-in-out infinite;
         }
+
+        /* Dark mode toggle switch */
+         .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 9999px;
+            padding: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+         }
+
+        .dark-mode-toggle:hover {
+             background: rgba(255, 255, 255, 1);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: rgba(45, 55, 72, 0.8);
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+         body.dark-mode .dark-mode-toggle:hover {
+             background: rgba(45, 55, 72, 1);
+         }
+
+         .dark-mode-toggle i {
+             color: #4f46e5;
+             transition: color 0.3s ease;
+         }
+
+        body.dark-mode .dark-mode-toggle i {
+             color: #a78bfa;
+        }
+
+        /* Specific text color overrides for dark mode */
+        body.dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+
+         body.dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+
+        body.dark-mode .border-gray-100 {
+             border-color: #4a5568;
+        }
+
+
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
-    <!-- Background circles -->
     <div class="circle circle-1"></div>
     <div class="circle circle-2"></div>
 
+    <button id="theme-toggle" class="dark-mode-toggle">
+        <i class="fas fa-moon" id="theme-toggle-icon"></i>
+    </button>
+
+
     <div class="container mx-auto flex flex-col md:flex-row max-w-6xl w-full gap-6">
-        <!-- Left: Branding Section -->
         <div class="branding-section w-full md:w-1/2 p-8 flex flex-col items-center justify-center text-center">
             <div class="relative mb-6">
                 <div class="absolute inset-0 bg-purple-100 rounded-full blur-lg opacity-30"></div>
                 <img src="assets/logo.webp" alt="Udyog Saarthi Logo" class="w-48 h-48 rounded-full shadow-md relative z-10 floating">
             </div>
             <h1 class="text-3xl font-bold text-gray-800 mb-4">Udyog Saarthi</h1>
-            <p class="text-gray-600 max-w-md mb-6">
+             <p class="text-gray-600 max-w-md mb-6">
                 Empowering careers for everyone with accessible job coaching, personalized guidance, and inclusive opportunities.
             </p>
             <div class="w-full max-w-xs">
@@ -277,23 +457,19 @@
             </div>
         </div>
 
-        <!-- Right: Login/Signup Form -->
         <div class="card w-full md:w-1/2">
-            <!-- Tabs -->
             <div class="flex border-b border-gray-100">
                 <button id="login-tab" class="tab-button w-1/2 py-5 px-6 text-center active" onclick="showTab('login')">Login</button>
                 <button id="signup-tab" class="tab-button w-1/2 py-5 px-6 text-center" onclick="showTab('signup')">Sign Up</button>
             </div>
 
-            <!-- Forms Container -->
             <div class="forms-container p-8">
-                <!-- Login Form -->
                 <div id="login-content" class="tab-content">
                     <div class="text-center mb-8">
-                        <h2 class="text-2xl font-bold text-gray-800">Welcome Back!</h2>
-                        <p class="text-gray-600 mt-2">Login to continue your journey</p>
+                         <h2 class="text-2xl font-bold text-gray-800">Welcome Back!</h2>
+                         <p class="text-gray-600 mt-2">Login to continue your journey</p>
                     </div>
-                    
+
                     <form class="space-y-4" method="POST" action="#">
                         <div class="floating-label">
                             <input id="login-email" name="email" type="email" class="w-full" placeholder=" " required>
@@ -303,7 +479,7 @@
                             <input id="login-password" name="password" type="password" class="w-full" placeholder=" " required>
                             <label for="login-password">Password</label>
                         </div>
-                        
+
                         <div class="flex items-center justify-between">
                             <div class="checkbox-custom">
                                 <input id="remember-me" name="remember" type="checkbox">
@@ -311,31 +487,21 @@
                             </div>
                             <a href="#" class="text-sm text-purple-600 hover:underline">Forgot password?</a>
                         </div>
-                        
+
                         <button type="submit" class="btn-primary w-full">
                             Login to Account
                         </button>
+
                         
-                        <div class="divider">or continue with</div>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <button type="button" class="social-btn">
-                                <i class="fab fa-google text-red-500 mr-2"></i> Google
-                            </button>
-                            <button type="button" class="social-btn">
-                                <i class="fab fa-linkedin text-blue-600 mr-2"></i> LinkedIn
-                            </button>
-                        </div>
                     </form>
                 </div>
 
-                <!-- Signup Form -->
                 <div id="signup-content" class="tab-content hidden">
                     <div class="text-center mb-8">
-                        <h2 class="text-2xl font-bold text-gray-800">Join Us Today</h2>
-                        <p class="text-gray-600 mt-2">Create your account to get started</p>
+                         <h2 class="text-2xl font-bold text-gray-800">Join Us Today</h2>
+                         <p class="text-gray-600 mt-2">Create your account to get started</p>
                     </div>
-                    
+
                     <form class="space-y-4" method="POST" action="#">
                         <div class="grid grid-cols-2 gap-4">
                             <div class="floating-label">
@@ -347,36 +513,36 @@
                                 <label for="last-name">Last Name</label>
                             </div>
                         </div>
-                        
+
                         <div class="floating-label">
                             <input id="signup-email" name="email" type="email" class="w-full" placeholder=" " required>
                             <label for="signup-email">Email Address</label>
                         </div>
-                        
+
                         <div class="floating-label">
                             <input id="signup-password" name="password" type="password" class="w-full" placeholder=" " required>
                             <label for="signup-password">Password</label>
                         </div>
-                        
+
                         <div class="floating-label">
                             <input id="confirm-password" name="confirm-password" type="password" class="w-full" placeholder=" " required>
                             <label for="confirm-password">Confirm Password</label>
                         </div>
-                        
+
                         <div class="checkbox-custom">
                             <input id="terms" name="terms" type="checkbox" required>
                             <label for="terms">
-                                I agree to the <a href="#" class="text-purple-600 hover:underline">Terms</a> and 
+                                I agree to the <a href="#" class="text-purple-600 hover:underline">Terms</a> and
                                 <a href="#" class="text-purple-600 hover:underline">Privacy Policy</a>
                             </label>
                         </div>
-                        
+
                         <button type="submit" class="btn-primary w-full">
                             Create Account
                         </button>
-                        
+
                         <div class="text-center text-sm text-gray-600">
-                            Already have an account? 
+                            Already have an account?
                             <a href="#" class="text-purple-600 hover:underline font-medium" onclick="showTab('login')">Login</a>
                         </div>
                     </form>
@@ -405,22 +571,57 @@
             }
         }
 
-        // Initialize with login tab
+        // Dark mode toggle functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const body = document.body;
+
+        // Check for saved theme in localStorage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+            body.classList.add('dark-mode');
+            themeToggleIcon.classList.remove('fa-moon');
+            themeToggleIcon.classList.add('fa-sun');
+        } else {
+            body.classList.remove('dark-mode');
+            themeToggleIcon.classList.remove('fa-sun');
+            themeToggleIcon.classList.add('fa-moon');
+        }
+
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save theme preference to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggleIcon.classList.remove('fa-moon');
+                themeToggleIcon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                 themeToggleIcon.classList.remove('fa-sun');
+                themeToggleIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Initialize with login tab and floating labels
         document.addEventListener('DOMContentLoaded', () => {
             showTab('login');
-            
+
             // Add floating label functionality
             document.querySelectorAll('.floating-label input').forEach(input => {
                 input.addEventListener('focus', () => {
                     input.parentNode.querySelector('label').classList.add('active');
                 });
-                
+
                 input.addEventListener('blur', () => {
                     if (!input.value) {
                         input.parentNode.querySelector('label').classList.remove('active');
                     }
                 });
-                
+
                 // Check if input has value on load
                 if (input.value) {
                     input.parentNode.querySelector('label').classList.add('active');
