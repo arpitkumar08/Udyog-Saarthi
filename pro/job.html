@@ -220,19 +220,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="c1.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
                             <i class="fas fa-user-graduate w-6 text-center"></i>
                             <span>Job Coaching</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="training.html"
-                            class="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
-                            <i class="fas fa-laptop-code w-6 text-center"></i>
-                            <span>Training</span>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="job.html"
                             class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-20 transition-all">
@@ -903,7 +897,6 @@
     </footer>
     
     <script>
-        // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // ===== THEME TOGGLE FUNCTIONALITY =====
             const themeToggle = document.getElementById('theme-toggle');
@@ -951,81 +944,77 @@
             closeMenuButton.addEventListener('click', closeMobileMenu);
             overlay.addEventListener('click', closeMobileMenu);
     
-            // ===== DISABILITY CATEGORY TABS =====
+            // ===== DISABILITY CATEGORY TABS - CORRECTED VERSION =====
             const tabs = document.querySelectorAll('.disability-tab');
             const sections = document.querySelectorAll('.disability-section');
+            const tabsContainer = document.querySelector('.disability-tabs');
     
-            // Initialize all sections as hidden first
-            sections.forEach(section => {
-                section.classList.add('hidden');
-                section.style.display = 'none';
-            });
+            // Initialize - show all sections by default
+            function initializeSections() {
+                sections.forEach(section => {
+                    section.style.display = 'block';
+                    section.classList.remove('hidden');
+                    section.style.transform = '';
+                });
+                
+                // Set 'All Jobs' as active by default
+                tabs.forEach(tab => tab.classList.remove('active'));
+                document.querySelector('.disability-tab[data-category="all"]').classList.add('active');
+            }
     
-            // Then show the deaf section with animation after a small delay
-            setTimeout(() => {
-                const deafSection = document.querySelector('.disability-section[data-category="deaf"]');
-                if (deafSection) {
-                    deafSection.style.display = 'block';
-                    // Force reflow before removing hidden class
-                    void deafSection.offsetHeight;
-                    deafSection.classList.remove('hidden');
-                }
-            }, 100);
-    
-            // Tab click functionality with smooth transitions
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Update active tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
+            // Show/hide sections with animation
+            function filterSections(category) {
+                sections.forEach(section => {
+                    const shouldShow = category === 'all' || section.dataset.category === category;
                     
-                    const category = tab.dataset.category;
-                    const tabsArray = Array.from(tabs);
-                    const currentIndex = tabsArray.findIndex(t => t.classList.contains('active'));
-                    
-                    // Animate sections
-                    sections.forEach((section, index) => {
-                        if (category === 'all' || section.dataset.category === category) {
-                            // Show section with animation
-                            section.style.display = 'block';
-                            // Force reflow to ensure transition works
-                            void section.offsetHeight;
-                            section.classList.remove('hidden');
-                            
-                            // Add direction-specific animation
-                            if (index < currentIndex) {
-                                section.style.transform = 'translateX(-20px)';
-                            } else if (index > currentIndex) {
-                                section.style.transform = 'translateX(20px)';
+                    if (shouldShow) {
+                        // Show section
+                        section.style.display = 'block';
+                        // Force reflow to ensure transition works
+                        void section.offsetHeight;
+                        section.classList.remove('hidden');
+                        section.style.transform = 'translateX(0)';
+                    } else {
+                        // Hide section with animation
+                        section.classList.add('hidden');
+                        section.style.transform = 'translateX(20px)';
+                        
+                        // Remove from layout after animation completes
+                        setTimeout(() => {
+                            if (section.classList.contains('hidden')) {
+                                section.style.display = 'none';
+                                section.style.transform = '';
                             }
-                            
-                            setTimeout(() => {
-                                section.style.transform = 'translateX(0)';
-                            }, 10);
-                        } else {
-                            // Hide section with animation
-                            if (index < currentIndex) {
-                                section.style.transform = 'translateX(-100%)';
-                            } else {
-                                section.style.transform = 'translateX(100%)';
-                            }
-                            section.classList.add('hidden');
-                            
-                            setTimeout(() => {
-                                if (section.classList.contains('hidden')) {
-                                    section.style.display = 'none';
-                                    section.style.transform = ''; // Reset transform
-                                }
-                            }, 600); // Match this with CSS transition duration
-                        }
-                    });
+                        }, 400); // Match this with your CSS transition duration
+                    }
+                });
+            }
     
-                    // Smooth scroll to top
+            // Tab click handler
+            function handleTabClick(tab) {
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter sections
+                const category = tab.dataset.category;
+                filterSections(category);
+                
+                // Smooth scroll to top
+                if (tabsContainer) {
                     window.scrollTo({
-                        top: document.querySelector('.disability-tabs').offsetTop - 20,
+                        top: tabsContainer.offsetTop - 20,
                         behavior: 'smooth'
                     });
-                });
+                }
+            }
+    
+            // Initialize sections
+            initializeSections();
+            
+            // Set up tab click handlers
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => handleTabClick(tab));
             });
         });
     </script>
