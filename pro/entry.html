@@ -455,13 +455,13 @@
             <div class="w-full max-w-xs">
                 <div class="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
             </div>
-        </div>
+            </div>
 
         <div class="card w-full md:w-1/2">
             <div class="flex border-b border-gray-100">
                 <button id="login-tab" class="tab-button w-1/2 py-5 px-6 text-center active" onclick="showTab('login')">Login</button>
                 <button id="signup-tab" class="tab-button w-1/2 py-5 px-6 text-center" onclick="showTab('signup')">Sign Up</button>
-            </div>
+                    </div>
 
             <div class="forms-container p-8">
                 <div id="login-content" class="tab-content">
@@ -486,15 +486,15 @@
                                 <label for="remember-me">Remember me</label>
                             </div>
                             <a href="#" class="text-sm text-purple-600 hover:underline">Forgot password?</a>
-                        </div>
+                    </div>
 
                         <button type="submit" class="btn-primary w-full">
                             Login to Account
                         </button>
 
                         
-                    </form>
-                </div>
+                </form>
+            </div>
 
                 <div id="signup-content" class="tab-content hidden">
                     <div class="text-center mb-8">
@@ -503,7 +503,7 @@
                     </div>
 
                     <form class="space-y-4" method="POST" action="signup.php">
-                        <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-4">
                             <div class="floating-label">
                                 <input id="first-name" name="first-name" type="text" class="w-full" placeholder=" " required>
                                 <label for="first-name">First Name</label>
@@ -517,25 +517,25 @@
                         <div class="floating-label">
                             <input id="signup-email" name="email" type="email" class="w-full" placeholder=" " required>
                             <label for="signup-email">Email Address</label>
-                        </div>
+                    </div>
 
                         <div class="floating-label">
                             <input id="signup-password" name="password" type="password" class="w-full" placeholder=" " required>
                             <label for="signup-password">Password</label>
-                        </div>
+                    </div>
 
                         <div class="floating-label">
                             <input id="confirm-password" name="confirm-password" type="password" class="w-full" placeholder=" " required>
                             <label for="confirm-password">Confirm Password</label>
-                        </div>
+                    </div>
 
                         <div class="checkbox-custom">
                             <input id="terms" name="terms" type="checkbox" required>
                             <label for="terms">
                                 I agree to the <a href="#" class="text-purple-600 hover:underline">Terms</a> and
                                 <a href="#" class="text-purple-600 hover:underline">Privacy Policy</a>
-                            </label>
-                        </div>
+                        </label>
+                    </div>
 
                         <button type="submit" class="btn-primary w-full">
                             Create Account
@@ -545,7 +545,7 @@
                             Already have an account?
                             <a href="#" class="text-purple-600 hover:underline font-medium" onclick="showTab('login')">Login</a>
                         </div>
-                    </form>
+                </form>
                 </div>
             </div>
         </div>

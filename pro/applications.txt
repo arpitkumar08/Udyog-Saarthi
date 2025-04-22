@@ -145,3 +145,30 @@ Files:
 Resume: uploads/Python.pdf
 Certificate: 
 --------------------------
+--------------------------
+New Application:
+Name: Arpit  Kumar
+Email: demo@gmail.com
+Phone: 9876543210
+Address: India, Phagwara - 123456
+
+Education:
+Degree: Bachelor&#039;s
+Institution: LPU
+Field: 
+Graduation Year: 
+
+Work Experience:
+Company: 
+Position: 
+Start Date: 
+End Date: 
+Responsibilities: 
+
+Additional Info: 
+Agreed to Terms: Yes
+
+Files:
+Resume: uploads/DeadlockDetectionTool.pdf
+Certificate: 
+--------------------------

@@ -1,4 +1,3 @@
-// Mobile menu functionality
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const closeMenuButton = document.getElementById('close-menu');
 const mobileMenu = document.getElementById('mobile-menu');
