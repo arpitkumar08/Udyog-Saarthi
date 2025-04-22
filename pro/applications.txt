@@ -118,3 +118,30 @@ Resume: uploads/DeadlockDetectionTool.pdf
 Certificate: uploads/DeadlockDetectionTool.pdf
 >>>>>>> fbc5874b2b271f1fcc50e2574a0953137e4c92ff
 --------------------------
+--------------------------
+New Application:
+Name: Donald  Trump
+Email: arpitk.9938@gmail.com
+Phone: 9078357355
+Address: kk, Kapurthala District - 144411
+
+Education:
+Degree: Diploma
+Institution: LPU
+Field: 
+Graduation Year: 
+
+Work Experience:
+Company: 
+Position: 
+Start Date: 
+End Date: 
+Responsibilities: 
+
+Additional Info: 
+Agreed to Terms: Yes
+
+Files:
+Resume: uploads/Python.pdf
+Certificate: 
+--------------------------
