@@ -19,7 +19,17 @@ $confirm_pass = $_POST['confirm-password'];
 
 // Check password match
 if ($pass !== $confirm_pass) {
-    die("Passwords do not match.");
+    echo "<script>alert('Passwords do not match.'); window.history.back();</script>";
+    exit();
+}
+
+// Check if email already exists
+$check_sql = "SELECT * FROM users WHERE email = '$email'";
+$result = $conn->query($check_sql);
+
+if ($result->num_rows > 0) {
+    echo "<script>alert('An account with this email already exists.'); window.history.back();</script>";
+    exit();
 }
 
 // Hash password
